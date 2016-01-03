@@ -1,0 +1,8 @@
+http://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=image&foreground.space.trim=1&foreground.space.pad=0&foreColor=607d8b%2C0&crop=0&backgroundShape=square&backColor=ffffff%2C100&effects=none 
+STRONKA DO GENEROWANIA IKONKI NA APKE
+http://www.c-sharpcorner.com/UploadFile/ef3808/how-to-open-new-activity-on-click-button-by-existing-activi/
+tworzenie nowych okien
+https://www.youtube.com/watch?v=LZ8kJg4Pg4Y
+https://www.youtube.com/watch?v=zH7dmLjUrPA
+https://www.youtube.com/watch?v=LsbYu-j6_TE
+Baza Danych

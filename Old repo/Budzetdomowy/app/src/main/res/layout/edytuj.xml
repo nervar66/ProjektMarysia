@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#66cccc"
+    tools:context=".main$PlaceholderFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Czyszczenie tabeli z dochodami"
+                android:id="@+id/But1_Czyszcz_doch"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:onClick="tableClean1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edycja dochodów"
+                android:id="@+id/button_edytuj_dochody"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:onClick="tableEdit1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Czyszczenie tabeli z wydatkami"
+                android:id="@+id/But2_Czyszcz_wyd"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:onClick="tableClean2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edycja wydatków"
+                android:id="@+id/button_edytuj_wydatki"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:onClick="tableEdit2" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

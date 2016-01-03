@@ -1,0 +1,7 @@
+AxControls          -  AxZaliczenie
+
+HelloWorld.cs       -  PoleTekstowe.cs
+IHelloWorld.cs      -  IPoleTekstowe.cs
+AxControlsInstaller -  AxZaliczenieInstaller
+
+http://www.olavaukan.com/2010/08/creating-an-activex-control-in-net-using-c/

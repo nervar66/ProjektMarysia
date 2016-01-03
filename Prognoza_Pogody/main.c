@@ -1,3 +1,4 @@
+
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
@@ -44,27 +45,22 @@ int FunkcjaConnectowa(){
     SockAddr.sin_port=htons(80);
     SockAddr.sin_family=AF_INET;
     SockAddr.sin_addr.s_addr = *((unsigned long*)host->h_addr);
-     //MessageBox(NULL, buffer1,"Connecting",MB_ICONINFORMATION|MB_OK);
+     MessageBox(NULL, buffer1,"Connecting",MB_ICONINFORMATION|MB_OK);
     if(connect(Socket,(SOCKADDR*)(&SockAddr),sizeof(SockAddr)) != 0){
         MessageBox(NULL, buffer1,"Could not connect",MB_ICONINFORMATION|MB_OK);
         system("pause");
         return 1;
     }
-    //MessageBox(NULL, buffer1,"Connected",MB_ICONINFORMATION|MB_OK);
-    //send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n"),0);
-    send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n"),0);
-    
-	char buffer[7000];
+    MessageBox(NULL, buffer1,"Connected",MB_ICONINFORMATION|MB_OK);
+    send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n"),0);
+    char buffer[10000];
     int nDataLength;
-    
-   // MessageBox(NULL, buffer,"test2",MB_ICONINFORMATION|MB_OK);
-    while ((nDataLength = recv(Socket,buffer,7000,0)) > 0){        
-        //int i = 0;
-        MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
-        /*while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {
-            MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
+    while ((nDataLength = recv(Socket,buffer,10000,0)) > 0){        
+        int i = 0;
+        while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {
+            MessageBox(NULL, buffer[i],"Connecting",MB_ICONINFORMATION|MB_OK);
             i += 1;
-        }*/
+        }
     }
     closesocket(Socket);
         WSACleanup();
@@ -117,33 +113,27 @@ LRESULT OnPaint(HWND hwnd){
 void GenerateButtonsAuthors(HWND parent, HINSTANCE hInstance){
 	
 	//static HWND hwnd_ed_u;
-	CreateWindow(TEXT("STATIC"), TEXT("Mamy nastepuj1cy sk3ad:"),
+	CreateWindow(TEXT("STATIC"), TEXT("Mamy nastêpuj¹cy sk³ad:"),
                               WS_CHILD | WS_VISIBLE ,
                               50, 10, 200, 25,
                               parent, (HMENU)(502),
                               hInstance, NULL);
 							  	
-	CreateWindow(TEXT("STATIC"), TEXT("in?. Piotr Zyszczak"),
+	CreateWindow(TEXT("STATIC"), TEXT("in¿. Piotr Zyszczak"),
                               WS_CHILD | WS_VISIBLE ,
                               50, 50, 200, 25,
                               parent, (HMENU)(502),
                               hInstance, NULL);
                               
-    CreateWindow(TEXT("STATIC"), TEXT("in? Damian Lukasik"),
+    CreateWindow(TEXT("STATIC"), TEXT("in¿ Damian £ukasik"),
                               WS_CHILD | WS_VISIBLE ,
                               50, 90, 200, 25,
                               parent, (HMENU)(502),
                               hInstance, NULL);    
                               
-    CreateWindow(TEXT("STATIC"), TEXT("in? Artur Snioszek"),
-                              WS_CHILD | WS_VISIBLE ,
-                              50, 130, 200, 25,
-                              parent, (HMENU)(502),
-                              hInstance, NULL);  
-                              
 	CreateWindowEx(WS_EX_CLIENTEDGE,"Button","Zamknij",WS_VISIBLE|WS_CHILD|BS_PUSHBUTTON,
 		50, /* x */
-		170, /* y */
+		140, /* y */
 		130, /* width */
 		30, /* height */
 		parent,(HMENU)Closing,hInstance,NULL);                      
@@ -152,7 +142,7 @@ void GenerateButtonsAuthors(HWND parent, HINSTANCE hInstance){
 void GenerateButtonsWeather(HWND parent, HINSTANCE hInstance){
 	
 	//static HWND hwnd_ed_u;
-	CreateWindow(TEXT("STATIC"), TEXT("Wpisz misto/kraj z którego chcesz pogode:"),
+	CreateWindow(TEXT("STATIC"), TEXT("Wpisz misto/kraj z którego chcesz pogodê:"),
                               WS_CHILD | WS_VISIBLE ,
                               50, 10, 300, 25,
                               parent, (HMENU)(502),
@@ -179,7 +169,7 @@ void GenerateButtonsWeather(HWND parent, HINSTANCE hInstance){
 		30, /* height */
 		parent,(HMENU)Closing2,hInstance,NULL);
 		
-	CreateWindowEx(WS_EX_CLIENTEDGE,"Button","Sprawd? pogode",WS_VISIBLE|WS_CHILD|BS_PUSHBUTTON,
+	CreateWindowEx(WS_EX_CLIENTEDGE,"Button","Sprawd¿ pogodê",WS_VISIBLE|WS_CHILD|BS_PUSHBUTTON,
 		200, /* x */
 		140, /* y */
 		149, /* width */
@@ -193,7 +183,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 		//LPCTSTR Caption = L"Application Programming Interface";
 		/* Upon destruction, tell the main thread to stop */
 		case WM_CLOSE: {
-			switch(MessageBox(NULL, "Chcesz zamkn1a?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
+			switch(MessageBox(NULL, "Chcesz zamkn¹æ?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
 						case IDYES:{
 							PostQuitMessage(0);
 							break;
@@ -221,7 +211,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 					break;	
 				}
 				case B_Option3: {
-					switch(MessageBox(NULL, "Chcesz zamkn1a?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
+					switch(MessageBox(NULL, "Chcesz zamkn¹æ?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
 						case IDYES:{
 							PostQuitMessage(0);
 							break;
@@ -261,7 +251,7 @@ void GenerateButtons(HWND parent, HINSTANCE hInstance){
                               parent, (HMENU)(502),
                               hInstance, NULL);
 		
-	CreateWindowEx(WS_EX_CLIENTEDGE,"Button","Wyszukaj Pogode",WS_VISIBLE|WS_CHILD|BS_PUSHBUTTON,
+	CreateWindowEx(WS_EX_CLIENTEDGE,"Button","Wyszukaj Pogodê",WS_VISIBLE|WS_CHILD|BS_PUSHBUTTON,
 		50, /* x */
 		50, /* y */
 		130, /* width */
@@ -290,7 +280,7 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 		
 		/* Upon destruction, tell the main thread to stop */
 		case WM_CLOSE: {
-			switch(MessageBox(NULL, "Chcesz zamkn1a?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
+			switch(MessageBox(NULL, "Chcesz zamkn¹æ?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
 						case IDYES:{
 							ShowWindow(hwnd,SW_HIDE);
 							break;
@@ -333,9 +323,9 @@ LRESULT CALLBACK WndProc2(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 	switch(Message) {
 		
 		/* Upon destruction, tell the main thread to stop */
-		//Tu jest bug trzeba przechwycia zdarzenie zanim zamknie sie okno
+		//Tu jest bug trzeba przechwyciæ zdarzenie zanim zamknie siê okno
 		case WM_CLOSE: {
-			switch(MessageBox(NULL, "Chcesz zamkn1a?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
+			switch(MessageBox(NULL, "Chcesz zamkn¹æ?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
 						case IDYES:{
 							ShowWindow(hwnd,SW_HIDE);
 							break;
@@ -427,7 +417,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		return 0;
 	}
 	
-	hwnd = CreateWindowEx(WS_EX_CLIENTEDGE,"WindowClass","Okno g3ówne",WS_VISIBLE|WS_OVERLAPPEDWINDOW,
+	hwnd = CreateWindowEx(WS_EX_CLIENTEDGE,"WindowClass","Okno g³ówne",WS_VISIBLE|WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, /* x */
 		CW_USEDEFAULT, /* y */
 		420, /* width */

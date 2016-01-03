@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <object name="axHello"
+            style='display:none' id='axHello'
+            classid='CLSID:1FC0D50A-4803-4f97-94FB-2F41717F558D'
+            codebase='Projekt_na_zaliczenie.cab#version=1,0,0,0'></object>
+    <script language="javascript">
+
+        alert("test 1");
+        var x = new ActiveXObject("AxControls.Proba01");
+
+        alert("test 2")
+        alert(x.GetText());
+        alert("test 3")
+    </script>
+
+</body>
+</html>

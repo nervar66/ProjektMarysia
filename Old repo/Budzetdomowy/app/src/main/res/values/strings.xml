@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">Home Budget</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Opcje</string>
+    <string name="dodusu1">Dodaj dochody</string>
+    <string name="dodusu2">Dodaj wydatki</string>
+    <string name="opcje">Opcje</string>
+    <string name="glowna">Strona główna</string>
+    <string name="statystyki">Wyświetl statystyki</string>
+    <string name="zamknij">Zamknij program</string>
+    <string name="edycja">Edytuj wydatki/dochody</string>
+    <string name="prompt">Wybierz dochód</string>
+    <string-array name="spinka">
+        <item>Pensja</item>
+        <item>Stypendium</item>
+        <item>Praca dorywcza</item>
+        <item>Inne</item>
+    </string-array>
+    <string-array name="okres">
+        <item>Ostatni Tydzień</item>
+        <item>Ostatni Miesiąc</item>
+        <item>Ostatni rok</item>
+    </string-array>
+    <string-array name="rodzaj">
+        <item>Tabela</item>
+        <item>Diagram</item>
+    </string-array>
+</resources>

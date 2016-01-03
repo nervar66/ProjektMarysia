@@ -1,0 +1,9 @@
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\Projekt_na_zaliczenie\bin\Debug\Projekt_na_zaliczenie.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\Projekt_na_zaliczenie\bin\Debug\Projekt_na_zaliczenie.pdb
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\Projekt_na_zaliczenie\obj\Debug\Projekt_na_zaliczenie.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\Projekt_na_zaliczenie\obj\Debug\Projekt_na_zaliczenie.pdb
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\Projekt_na_zaliczenie\obj\Debug\Projekt_na_zaliczenie.csprojResolveAssemblyReference.cache
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\Projekt_na_zaliczenie\bin\Debug\Projekt_na_zaliczenie.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\Projekt_na_zaliczenie\bin\Debug\Projekt_na_zaliczenie.pdb
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\Projekt_na_zaliczenie\obj\Debug\Projekt_na_zaliczenie.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\Projekt_na_zaliczenie\obj\Debug\Projekt_na_zaliczenie.pdb

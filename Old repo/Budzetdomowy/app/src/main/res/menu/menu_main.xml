@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".main">
+    <item android:id="@+id/opcje"
+          android:title="@string/opcje"
+          app:showAsAction="always|withText">
+        <menu>
+            <item android:id="@+id/glowna"
+            android:title="@string/glowna"
+            app:showAsAction="always|withText"/>
+    <item android:id="@+id/dodusu1"
+        android:title="@string/dodusu1"
+        app:showAsAction="always|withText"/>
+    <item android:id="@+id/dodusu2"
+        android:title="@string/dodusu2"
+        app:showAsAction="always|withText"/>
+    <item android:id="@+id/statystyki"
+        android:title="@string/statystyki"
+        app:showAsAction="always|withText"/>
+     <item android:id="@+id/edytuj"
+        android:title="@string/edycja"
+        app:showAsAction="always|withText"/>
+</menu>
+</item>
+
+</menu>

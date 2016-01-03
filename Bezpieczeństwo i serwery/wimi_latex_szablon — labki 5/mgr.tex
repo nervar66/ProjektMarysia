@@ -1,0 +1,141 @@
+\documentclass[a4paper,twoside,12pt]{mgr}
+\makeatletter
+\def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{cite}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\restylefloat{figure}
+\usepackage{listingsutf8}
+\usepackage{color}
+\usepackage{textcomp}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+
+\lstset{
+    inputencoding=utf8,
+	backgroundcolor=\color{lbcolor},
+	tabsize=4,
+	rulecolor=,
+	language=java,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color[rgb]{0,0,1},
+        commentstyle=\color[rgb]{0.133,0.545,0.133},
+        stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+\usepackage{graphicx}
+\fancyhf{}
+\fancyhead[LE,LO]{\leftmark}
+\fancyfoot[CE,CO]{- \thepage\ -}
+%\linespread{1.3}
+\fancypagestyle{plain}{
+\fancyhead[LE,LO]{\leftmark}
+\fancyfoot[CE,CO]{- \thepage\ -} 
+}
+\raggedbottom
+
+
+%**************************************************************************
+% Dane do strony tytułowej
+%
+
+% Autor
+\autor{Piotr Zyszczak i Damian Łukasik}
+
+% Rodzaj pracy - wpisać LICENCJACKA, INŻYNIERSKA lub MAGISTERSKA
+\rodzajPracy{}
+
+% Tytuł pracy magisterskiej/inżynierskiej
+\tytul{Tworzenie infrastruktury klucza prywatnego}
+
+% Rok
+\rok{2015}
+
+% Kierunek
+\kierunek{Informatyka}
+
+% Studia stacjonarne lub niestacjonarne (wpisać jakie)
+\studia{stacjonarne}
+
+% Poziom studiów wpisać I lub II
+\poziomStudiow{II}
+
+
+% Numer albumu
+\numerAlbumu{113066/112993}
+
+%
+%**************************************************************************
+
+
+% Styl dla wtrąceń anglojęzycznych
+\newcommand{\eng}[1]{(\emph{#1})}
+
+\begin{document}
+
+\stronaTytulowa
+
+\tableofcontents
+\chapter{Cel i zakres zajęć}
+Celem zajęć było stworzenie Infrastruktury Klucza Publicznego
+
+\chapter{Wstęp teoretyczny}
+Infrastruktura klucza publicznego (ang. Public Key Infrastructure (PKI)) – zbiór osób, polityk, procedur i systemów komputerowych niezbędnych do świadczenia usług uwierzytelniania, szyfrowania, integralności i niezaprzeczalności za pośrednictwem kryptografii klucza publicznego i prywatnego i certyfikatów elektronicznych.
+W szczególności jest to szeroko pojęty kryptosystem, w skład którego wchodzą urzędy certyfikacyjne (CA), urzędy rejestracyjne (RA), subskrybenci certyfikatów klucza publicznego (użytkownicy), oprogramowanie oraz sprzęt. Infrastruktura klucza publicznego tworzy hierarchiczną strukturę zaufania, której podstawowym dokumentem jest certyfikat klucza publicznego. Najpopularniejszym standardem certyfikatów PKI jest X.509 w wersji trzeciej.
+Do podstawowych funkcji PKI należą:
+\begin{itemize}
+\item Weryfikacja tożsamości subskrybentów
+\item Wymiana kluczy kryptograficznych
+\item Wystawianie certyfikatów
+\item Weryfikacja certyfikatów
+\item Podpisywanie przekazu
+\item Szyfrowanie przekazu
+\item Potwierdzanie tożsamości
+\item Znakowanie czasem
+\end{itemize}
+Dodatkowo, w pewnych konfiguracjach, możliwe jest:
+\begin{itemize}
+\item Odzyskiwanie kluczy prywatnych.
+\end{itemize}
+\chapter{Przebieg}
+Najpierw dodajemy rolę serwer aplikacji do serwera. Następnie zaznaczamy obsługę serwera sieci web i role serwera sieci web (IIS). Sprawdzamy czy usługi działają odwołując się w przeglądarce do localhosta.
+
+Kolejny krok to Główny Urząd Certyfikacji. Instaluje się w tym celu kolejną rolę Urząd certyfikacji w usłudze Active Directory.
+
+Urząd zainstalowany został poprzez wybór poniższych opcji:
+\begin{itemize}
+\item  tryb instalacji jako automatyczny,
+\item  typ urzędu jako główny urząd certyfikacji,
+\item  klucz prywatny jako nowy klucz prywatny,
+\item  kryptografia bez zmian,
+\item  nazwa urzędu certyfikacji - wpisujemy nazwę utworzonego kontrolera,
+\item  okres ważności i ścieżka bez zmian
+\end{itemize}
+
+Pod adresem http://localhost/certsrv/ możemy sprawdzić poprawność działania aplikacji internetowej wchodzącej w skład zainstalowanej nowo roli serwera.
+
+Pośredni Urząd Certyfikacji instaluję się podobnie jak Główny, z wyjątkiem:
+\begin{itemize}
+\item typ urzędu ustawiamy na podrzędny,
+\item nazwa urzędu np.: klient
+\end{itemize}
+
+\chapter{Wnioski}
+Klucz publiczny stosuje się przede wszystkim z powodu bezpieczeństwa. Ponadto daje nam to uproszczoną administrację, gdzie organizacją może wystawić certyfikaty, tak, aby wyeliminować ciągłe stosowanie haseł. Ponadto istnieje możliwość bezpiecznej wymiany plików i danych w sieciach publicznych taki jak Internet.
+
+\end{document}

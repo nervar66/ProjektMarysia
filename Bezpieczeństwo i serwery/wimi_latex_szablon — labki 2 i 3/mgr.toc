@@ -1,0 +1,6 @@
+\select@language {polish}
+\select@language {polish}
+\contentsline {chapter}{\numberline {1}Cel i zakres zaj\IeC {\k e}\IeC {\'c}}{3}
+\contentsline {chapter}{\numberline {2}Wst\IeC {\k e}p teoretyczny}{4}
+\contentsline {chapter}{\numberline {3}Przebieg}{7}
+\contentsline {chapter}{\numberline {4}Wnioski}{9}

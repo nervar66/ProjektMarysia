@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+    <object name="axHello"  style='display:none' id='axHello'  classid='CLSID:1FC0D50A-4803-4f97-94FB-2F41717F558D' codebase='AxControls.cab#version=1,0,0,0'></object>
+
+    <script language="javascript">
+        alert("test1");
+        var x = new ActiveXObject("AxControls.HelloWorld");
+        
+        alert(x.GetText());
+
+        //var y = new ActiveXObject("AxControls.Pogoda");
+        
+        alert("koniec");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+[version]
+signature="$CHICAGO$"
+AdvancedINF=2.0
+
+[Add.Code]
+AxZaliczenieInstaller.msi=AxZaliczenieInstaller.msi
+
+[AxZaliczenieInstaller.msi]
+file-win32-x86=thiscab
+clsid={1FC0D50A-4803-4f97-94FB-2F41717F558D}
+FileVersion=1,0,0,0
+
+[Setup Hooks]
+RunSetup=RunSetup
+
+[RunSetup]
+run="""msiexec.exe""" /i """%EXTRACT_DIR%\AxZaliczenieInstaller.msi""" /qn

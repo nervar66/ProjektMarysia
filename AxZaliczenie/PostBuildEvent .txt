@@ -1,0 +1,1 @@
+"$(ProjectDir)\CABARC.EXE" N "$(ProjectDir)AxZaliczenie.cab" "$(ProjectDir)AxZaliczenie.inf" "$(ProjectDir)$(Configuration)\AxZaliczenieInstaller.msi"

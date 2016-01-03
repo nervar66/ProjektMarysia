@@ -1,0 +1,52 @@
+{% extends "loggedin.html" %}
+{% block tytul %}Zestawienie{% endblock %}
+
+{% block body %}
+
+<h2>Zestawienie</h2>
+
+	<p>Dochody:</p>
+	<br>
+	<table>
+    <tr>
+		
+        <th><p>id</p></th>
+        <th><p>wartosc</p></th>
+        <th><p>data</p></th>
+        <th><p>stalosc</p></th>
+        <th><p>kategoria</p></th>
+    </tr>
+    {% for item in query %}
+    <tr> 
+	<td><p>{{ item.id }}</p></td>
+        <td><p>{{ item.tytul }}</p></td>
+        <td><p>{{ item.wartosc }}</p></td>
+        <td><p>{{ item.data }}</p></td>
+        <td><p>{{ item.stalosc }}</p></td>
+        <td><p>{{ item.kategoria }}</p></td>
+    </tr>
+    {% endfor %}
+	</table>
+<br>
+<p>Wydatki:</p>
+	<br>
+	<table>
+    <tr>
+	<th><p>id</p></th>
+        <th><p>tytul</p></th>
+        <th><p>wartosc</p></th>
+        <th><p>data</p></th>
+        <th><p>stalosc</p></th>
+    </tr>
+    {% for itemn in query2 %}
+    <tr> 
+	<td><p>{{ itemn.id }}</p></td>
+        <td><p>{{ itemn.tytul }}</p></td>
+        <td><p>{{ itemn.wartosc }}</p></td>
+        <td><p>{{ itemn.data }}</p></td>
+        <td><p>{{ itemn.stalosc }}</p></td>
+    </tr>
+    {% endfor %}
+	</table>
+{% endblock %}
+

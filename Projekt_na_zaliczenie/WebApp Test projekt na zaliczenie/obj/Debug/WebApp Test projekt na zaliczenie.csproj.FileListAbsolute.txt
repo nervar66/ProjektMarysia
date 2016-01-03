@@ -1,0 +1,40 @@
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\csc.exe
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\vbc.exe
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\VBCSCompiler.exe
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\WebApp Test projekt na zaliczenie.dll.config
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\WebApp Test projekt na zaliczenie.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\WebApp Test projekt na zaliczenie.pdb
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\obj\Debug\WebApp Test projekt na zaliczenie.csprojResolveAssemblyReference.cache
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\obj\Debug\WebApp Test projekt na zaliczenie.dll
+C:\Users\Dayan\documents\visual studio 2015\Projects\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\obj\Debug\WebApp Test projekt na zaliczenie.pdb
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\csc.exe
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\vbc.exe
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\VBCSCompiler.exe
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\WebApp Test projekt na zaliczenie.dll.config
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\WebApp Test projekt na zaliczenie.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\WebApp Test projekt na zaliczenie.pdb
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\obj\Debug\WebApp Test projekt na zaliczenie.csprojResolveAssemblyReference.cache
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\obj\Debug\WebApp Test projekt na zaliczenie.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt_na_zaliczenie\WebApp Test projekt na zaliczenie\obj\Debug\WebApp Test projekt na zaliczenie.pdb

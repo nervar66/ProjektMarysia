@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#66cccc"
+                tools:context=".main$PlaceholderFragment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="167dp"
+            android:layout_height="fill_parent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Wydajka"
+                android:src="@mipmap/wydaj"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:onClick="onButtonClick1"
+                android:nestedScrollingEnabled="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Wydatki"
+                android:id="@+id/textView2"
+                android:textColor="#FF0000"
+                android:layout_marginEnd="50dp"
+                android:layout_below="@+id/Wydajka"
+                android:layout_alignEnd="@+id/Wydajka" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Statystyczka"
+                android:src="@mipmap/statistics"
+                android:layout_alignTop="@+id/Edytka"
+                android:layout_alignParentEnd="true"
+                android:onClick="onButtonClick2"
+                android:nestedScrollingEnabled="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Zestawienie"
+                android:id="@+id/textView9"
+                android:textColor="#FF0000"
+                android:layout_below="@+id/Statystyczka"
+                android:layout_alignEnd="@+id/textView2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Dodajka"
+                android:src="@mipmap/dodaj"
+                android:nestedScrollingEnabled="true"
+                android:onClick="onButtonClick"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/Wydajka" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Dochody"
+                android:id="@+id/textView"
+                android:textColor="#FF0000"
+                android:layout_below="@+id/Dodajka"
+                android:layout_toStartOf="@+id/Wydajka"
+                android:layout_marginEnd="36dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Edytka"
+                android:src="@mipmap/hammer"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/Statystyczka"
+                android:onClick="onButtonClick3"
+                android:nestedScrollingEnabled="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Edycja"
+                android:id="@+id/textView8"
+                android:textColor="#FF0000"
+                android:layout_below="@+id/Edytka"
+                android:layout_alignStart="@+id/textView" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,55 @@
+\begin{thebibliography}{10}
+
+\bibitem{BakerCluster}
+M.~Baker.
+\newblock {C}luster {C}omputing {W}hite {P}aper, 2000.
+\newblock citeseer.ist.psu.edu/baker00cluster.html.
+
+\bibitem{bib:Buyya}
+R.~Buyya ed.
+\newblock {\em {H}igh {P}erformance {C}luster {C}omputing: {P}rogramming and
+  {A}pplications}.
+\newblock Prentice Hall Inc., 1999.
+
+\bibitem{bib:SCORE}
+http://cluster.mcs.st and.ac.uk/score/en.
+\newblock {SCore} {C}luster {S}ystem {S}oftware {D}ocuments.
+\newblock Web Page, 2003.
+
+\bibitem{bib:mosix}
+http://www.mosix.org.
+\newblock {MOSIX}.
+\newblock Web Page, 2004.
+
+\bibitem{bib:PBS}
+http://www.openpbs.org.
+\newblock {OpenPBS}.
+\newblock Web Page, 2003.
+
+\bibitem{bib:LSF}
+http://www.platform.com.
+\newblock Platform computing - accelerating intelligence - grid computing.
+\newblock Web Page, 2004.
+
+\bibitem{bib:KitowskiSystemy}
+J.~Kitowski.
+\newblock {\em Współczesne systemy komputerowe}.
+\newblock CCNS, Kraków, 2000.
+
+\bibitem{bib:KompRow}
+S.~Kozielbski and Z.~Szczebrbiński.
+\newblock {\em Komputery równoległe: architektura, elementy programowania}.
+\newblock Wydawnictwa Naukowo{\dywiz}Techniczne, Warszawa, 1993.
+
+\bibitem{bib:Condor}
+Douglas Thain, Todd Tannenbaum, , and Miron Livny.
+\newblock {D}istributed {C}omputing in {P}ractice: {T}he {C}ondor {E}xperience.
+\newblock {\em Concurrency and Computation: Practice and Experience}, 2004.
+
+\bibitem{bib:WyrzykowskiArch}
+R.~Wyrzykowski.
+\newblock Organizacja procesów obliczeniowych w równoległych i rozproszonych
+  systemach komputerowych.
+\newblock http://\-www.k2.pcz.czest.pl/\~roman/\-book1/\-spis.html.
+
+\end{thebibliography}

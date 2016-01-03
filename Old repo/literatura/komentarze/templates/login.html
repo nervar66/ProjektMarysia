@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href={% static 'komentarze/styles.css' %} />
+	<title>Logowanie</title>
+</head>
+<body>
+	
+{%if form.errors%}
+<p class="error">Niewłaściwa nazwa użytkownika lub hasło sorry :)</p>
+{%endif%}
+
+<form action="/auth" method="post">{% csrf_token %}
+<label for="username">User name:</label>
+<input type="text" name="username" value="" id="username">
+<label for="password">Password:</label>
+<input type="password" name="password" value="" id="password">
+<input type="submit" value="login">
+</form>
+
+</body>
+</html>
