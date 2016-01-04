@@ -45,22 +45,27 @@ int FunkcjaConnectowa(){
     SockAddr.sin_port=htons(80);
     SockAddr.sin_family=AF_INET;
     SockAddr.sin_addr.s_addr = *((unsigned long*)host->h_addr);
-     MessageBox(NULL, buffer1,"Connecting",MB_ICONINFORMATION|MB_OK);
+     //MessageBox(NULL, buffer1,"Connecting",MB_ICONINFORMATION|MB_OK);
     if(connect(Socket,(SOCKADDR*)(&SockAddr),sizeof(SockAddr)) != 0){
         MessageBox(NULL, buffer1,"Could not connect",MB_ICONINFORMATION|MB_OK);
         system("pause");
         return 1;
     }
-    MessageBox(NULL, buffer1,"Connected",MB_ICONINFORMATION|MB_OK);
-    send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n"),0);
-    char buffer[10000];
+    //MessageBox(NULL, buffer1,"Connected",MB_ICONINFORMATION|MB_OK);
+    //send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n"),0);
+    send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n"),0);
+    
+	char buffer[7000];
     int nDataLength;
-    while ((nDataLength = recv(Socket,buffer,10000,0)) > 0){        
-        int i = 0;
-        while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {
-            MessageBox(NULL, buffer[i],"Connecting",MB_ICONINFORMATION|MB_OK);
+    
+   // MessageBox(NULL, buffer,"test2",MB_ICONINFORMATION|MB_OK);
+    while ((nDataLength = recv(Socket,buffer,7000,0)) > 0){        
+        //int i = 0;
+        MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
+        /*while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {
+            MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
             i += 1;
-        }
+        }*/
     }
     closesocket(Socket);
         WSACleanup();
