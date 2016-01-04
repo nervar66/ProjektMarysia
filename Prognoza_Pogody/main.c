@@ -53,7 +53,7 @@ int FunkcjaConnectowa(){
     }
     //MessageBox(NULL, buffer1,"Connected",MB_ICONINFORMATION|MB_OK);
     //send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n"),0);
-    send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n"),0);
+    send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n"),0);
     
 	char buffer[7000];
     int nDataLength;
@@ -134,11 +134,17 @@ void GenerateButtonsAuthors(HWND parent, HINSTANCE hInstance){
                               WS_CHILD | WS_VISIBLE ,
                               50, 90, 200, 25,
                               parent, (HMENU)(502),
-                              hInstance, NULL);    
+                              hInstance, NULL);   
+                              
+	CreateWindow(TEXT("STATIC"), TEXT("in¿ Damian £ukasik"),
+                              WS_CHILD | WS_VISIBLE ,
+                              50, 130, 200, 25,
+                              parent, (HMENU)(502),
+                              hInstance, NULL);  
                               
 	CreateWindowEx(WS_EX_CLIENTEDGE,"Button","Zamknij",WS_VISIBLE|WS_CHILD|BS_PUSHBUTTON,
 		50, /* x */
-		140, /* y */
+		170, /* y */
 		130, /* width */
 		30, /* height */
 		parent,(HMENU)Closing,hInstance,NULL);                      
