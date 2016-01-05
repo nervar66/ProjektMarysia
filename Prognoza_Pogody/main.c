@@ -10,6 +10,7 @@
 #include <iphlpapi.h>
 #include <stdio.h>
 
+
 #pragma comment(lib, "libws2_32.a")
 
 #define BUFFERSIZE 1024
@@ -22,6 +23,7 @@
 #define Closing   104
 #define Closing2  104
 #define Chconn    105
+#define DBtest    106
 
 	WNDCLASSEX wc1;
 	WNDCLASSEX wc2;
@@ -185,7 +187,14 @@ void GenerateButtonsWeather(HWND parent, HINSTANCE hInstance){
 		140, /* y */
 		149, /* width */
 		30, /* height */
-		parent,(HMENU)Chconn,hInstance,NULL);                           
+		parent,(HMENU)Chconn,hInstance,NULL);    
+		
+	CreateWindowEx(WS_EX_CLIENTEDGE,"Button","Test bazy",WS_VISIBLE|WS_CHILD|BS_PUSHBUTTON,
+		200, /* x */
+		170, /* y */
+		149, /* width */
+		30, /* height */
+		parent,(HMENU)DBtest,hInstance,NULL);                        
 }
 
 /* This is where all the input to the window goes to */
@@ -284,8 +293,13 @@ void GenerateButtons(HWND parent, HINSTANCE hInstance){
 		parent,(HMENU)B_Option3,hInstance,NULL);
 }
 
+int FunkcjaBazodanowa(){
+	
+}
+
 LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) {
 	int Data_Of_Thread_1 = 1;
+	int Data_Of_Thread_2 = 1;
 	HANDLE Array_Of_Thread_Handles[3];
 	switch(Message) {
 		
@@ -316,6 +330,15 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 					Array_Of_Thread_Handles[0] = Handle_Of_Thread_1;
 					WaitForMultipleObjects( 3, Array_Of_Thread_Handles, TRUE, INFINITE);
 					CloseHandle(Handle_Of_Thread_1);
+					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
+					break;
+				}
+				
+				case DBtest: {
+					HANDLE Handle_Of_Thread_2 = CreateThread( NULL, 0,FunkcjaBazodanowa, &Data_Of_Thread_1, 0, NULL);
+					Array_Of_Thread_Handles[1] = Handle_Of_Thread_2;
+					WaitForMultipleObjects( 3, Array_Of_Thread_Handles, TRUE, INFINITE);
+					CloseHandle(Handle_Of_Thread_2);
 					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
 					break;
 				}
