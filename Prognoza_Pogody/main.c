@@ -300,7 +300,7 @@ void show_error(unsigned int handletype, const SQLHANDLE handle){
     SQLCHAR sqlstate[1024];
     SQLCHAR message[1024];
     if(SQL_SUCCESS == SQLGetDiagRec(handletype, handle, 1, sqlstate, NULL, message, 1024, NULL)){
-    	MessageBox(NULL, "Connection!",(LPCSTR)("Message: %d nSQLSTATE: %d",&message,&sqlstate),MB_ICONINFORMATION|MB_OK);
+    	MessageBox(NULL,(LPCSTR)("Message: %d nSQLSTATE: %d",&message,&sqlstate), "Connection!",MB_ICONINFORMATION|MB_OK);
         //cout<<"Message: "<<message<<"nSQLSTATE: "<<sqlstate<<endl;
 }	
 }    
@@ -356,7 +356,7 @@ int FunkcjaBazodanowa(){
             SQLGetData(sqlstatementhandle, 1, SQL_C_ULONG, &id, 0, NULL);
             SQLGetData(sqlstatementhandle, 2, SQL_C_CHAR, name, 64, NULL);
             SQLGetData(sqlstatementhandle, 3, SQL_C_CHAR, address, 64, NULL);
-            MessageBox(NULL, "Connection!",(LPCSTR)("%d , %d , %d",&id,&name,&address),MB_ICONINFORMATION|MB_OK);
+            MessageBox(NULL,(LPCSTR)("%d , %d , %d",&id,&name,&address) ,"Connection!",MB_ICONINFORMATION|MB_OK);
             //cout<<id<<" "<<name<<" "<<address<<endl;
         }
     }
