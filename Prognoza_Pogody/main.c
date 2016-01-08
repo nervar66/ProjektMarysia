@@ -324,7 +324,7 @@ int FunkcjaBazodanowa(){
     SQLCHAR retconstring[1024];
     switch(SQLDriverConnect (sqlconnectionhandle, 
                 NULL, 
-                (SQLCHAR*)"DRIVER={SQL Server};SERVER=oracle4.icis.pcz.pl, 1521;DATABASE=oracle4;UID=PIOZYS;PWD=Piotr66;", 
+                (SQLCHAR*)"DRIVER={SQL Server};SERVER=localhost, 3306;DATABASE=test;UID=root;PWD=Nervar66;", 
                 SQL_NTS, 
                 retconstring, 
                 1024, 
