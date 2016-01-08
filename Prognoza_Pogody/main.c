@@ -13,6 +13,8 @@
 #include <sqlext.h>
 
 #pragma comment(lib, "libws2_32.a")
+#pragma comment(lib, "libodbc32.a")
+#pragma comment(lib, "libodbccp32.a")
 
 #define BUFFERSIZE 1024
 #define Label 	  99
