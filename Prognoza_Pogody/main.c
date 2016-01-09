@@ -34,6 +34,7 @@
 	HWND hwnd2;
 	HWND hwnd3;
 	HANDLE Handle_Of_Thread_1 = 0;
+	HWND hText,hText2;
 
 int FunkcjaConnectowa(){
 	char buffer1[1024];
@@ -64,7 +65,28 @@ int FunkcjaConnectowa(){
 	 //strlen("GET / HTTP/1.1\r\nHost: www.wunderground.com/cgi-bin/findweather/getForecast?query=Krakow%2C+Polska&MR=1.html\r\nConnection: close\r\n\r\n"),80);
     //send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n"),0);
    // mess = "GET /C_sharp/Wprowadzenie_do_w%C4%85tk%C3%B3w HTTP/1.1\r\nHost: 4programmers.net\r\n\r\n";
-	mess = "GET /api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json HTTP/1.1\r\nHost: api.wunderground.com\r\n\r\n";
+   	DWORD dlugosc = GetWindowTextLength( hText );
+	LPSTR Bufor =( LPSTR ) GlobalAlloc( GPTR, dlugosc + 1 );
+	GetWindowText( hText, Bufor, dlugosc + 1 );
+	
+	DWORD dlugosc2 = GetWindowTextLength( hText2 );
+	LPSTR Bufor2 =( LPSTR ) GlobalAlloc( GPTR, dlugosc2 + 1 );
+	GetWindowText( hText2, Bufor2, dlugosc2 + 1 );
+	//MessageBox(NULL, Bufor2, "Connecting",MB_ICONINFORMATION|MB_OK);
+	
+	char* char1=(char*)Bufor;
+	char* char2=(char*)Bufor2;
+	char* char3= "GET /api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/";
+	char* char4= "/";
+	char* char5= ".json HTTP/1.1\r\nHost: api.wunderground.com\r\n\r\n";
+	char dest_buf[100]; 
+	wsprintf (dest_buf, "%s%s", char3, char1);
+	wsprintf (dest_buf, "%s%s", dest_buf, char4);
+	wsprintf (dest_buf, "%s%s", dest_buf, char2);
+	wsprintf (dest_buf, "%s%s", dest_buf, char5);
+	
+	
+	mess = dest_buf;
     if(send(Socket , mess , strlen(mess) , 0) < 0)
     {
        
@@ -173,14 +195,14 @@ void GenerateButtonsWeather(HWND parent, HINSTANCE hInstance){
                               parent, (HMENU)(502),
                               hInstance, NULL);
                               
-    CreateWindowEx(WS_EX_CLIENTEDGE,"EDIT","Kraj",WS_VISIBLE|WS_CHILD|WS_VSCROLL|ES_MULTILINE|ES_AUTOVSCROLL|ES_CENTER,
+   	hText = CreateWindowEx(WS_EX_CLIENTEDGE,"EDIT","Kraj",WS_VISIBLE|WS_CHILD|WS_VSCROLL|ES_MULTILINE|ES_AUTOVSCROLL|ES_CENTER,
 		50, /* x */
 		50, /* y */
 		300, /* width */
 		25, /* height */
 		parent,(HMENU)TI_Edit,hInstance,NULL);
 		
-	CreateWindowEx(WS_EX_CLIENTEDGE,"EDIT","Miasto",WS_VISIBLE|WS_CHILD|WS_VSCROLL|ES_MULTILINE|ES_AUTOVSCROLL|ES_CENTER,
+	hText2=CreateWindowEx(WS_EX_CLIENTEDGE,"EDIT","Miasto",WS_VISIBLE|WS_CHILD|WS_VSCROLL|ES_MULTILINE|ES_AUTOVSCROLL|ES_CENTER,
 		50, /* x */
 		90, /* y */
 		300, /* width */
