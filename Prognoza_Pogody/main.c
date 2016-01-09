@@ -37,6 +37,8 @@
 
 int FunkcjaConnectowa(){
 	char buffer1[1024];
+	char *mess;
+	
 	WSADATA wsaData;
     if (WSAStartup(MAKEWORD(2,2), &wsaData) != 0) {
         MessageBox(NULL, buffer1,"WSA startup failed",MB_ICONINFORMATION|MB_OK);
@@ -45,6 +47,7 @@ int FunkcjaConnectowa(){
     }
     SOCKET Socket=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
     struct hostent *host;
+    //host = gethostbyname("4programmers.net");
     host = gethostbyname("api.wunderground.com");
     SOCKADDR_IN SockAddr;
     SockAddr.sin_port=htons(80);
@@ -57,14 +60,20 @@ int FunkcjaConnectowa(){
         return 1;
     }
     //MessageBox(NULL, buffer1,"Connected",MB_ICONINFORMATION|MB_OK);
-    //send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n"),0);
-    send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json\r\nConnection: close\r\n\r\n"),0);
-    
-	char buffer[7000];
+   // send(Socket,"GET / HTTP/1.1\r\nHost: www.wunderground.com/cgi-bin/findweather/getForecast?query=Krakow%2C+Polska&MR=1.html\r\nConnection: close\r\n\r\n",
+	 //strlen("GET / HTTP/1.1\r\nHost: www.wunderground.com/cgi-bin/findweather/getForecast?query=Krakow%2C+Polska&MR=1.html\r\nConnection: close\r\n\r\n"),80);
+    //send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n"),0);
+   // mess = "GET /C_sharp/Wprowadzenie_do_w%C4%85tk%C3%B3w HTTP/1.1\r\nHost: 4programmers.net\r\n\r\n";
+	mess = "GET /api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json HTTP/1.1\r\nHost: api.wunderground.com\r\n\r\n";
+    if(send(Socket , mess , strlen(mess) , 0) < 0)
+    {
+       
+    }
+	char buffer[2000];
     int nDataLength;
     
    // MessageBox(NULL, buffer,"test2",MB_ICONINFORMATION|MB_OK);
-    while ((nDataLength = recv(Socket,buffer,7000,0)) > 0){        
+    while ((nDataLength = recv(Socket,buffer,2000,0)) > 0){        
         //int i = 0;
         MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
         /*while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {
