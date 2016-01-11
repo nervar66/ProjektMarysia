@@ -387,6 +387,10 @@ int FunkcjaBazodanowa(){
             SQLGetData(sqlstatementhandle, 1, SQL_C_CHAR, id, 64, NULL);
             SQLGetData(sqlstatementhandle, 2, SQL_C_CHAR, name, 64, NULL);
             SQLGetData(sqlstatementhandle, 3, SQL_C_CHAR, address, 64, NULL);
+            
+            //char buffor[500]=name
+            //wsprintf (dest_buf, "%s%s", char3, char1);
+            
             MessageBox(NULL,(LPCSTR)("%s ,%s ,%s ",&id,&name,&address) ,"Connection!",MB_ICONINFORMATION|MB_OK);
             //cout<<id<<" "<<name<<" "<<address<<endl;
             //MessageBox(NULL,"Dane" ,"Connection!",MB_ICONINFORMATION|MB_OK);
