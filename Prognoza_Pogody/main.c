@@ -382,13 +382,14 @@ int FunkcjaBazodanowa(){
     else{
         char name[64];
         char address[64];
-        int id;
+        char id[64];
         while(SQLFetch(sqlstatementhandle)==SQL_SUCCESS){
-            SQLGetData(sqlstatementhandle, 1, SQL_C_ULONG, &id, 0, NULL);
+            SQLGetData(sqlstatementhandle, 1, SQL_C_CHAR, id, 64, NULL);
             SQLGetData(sqlstatementhandle, 2, SQL_C_CHAR, name, 64, NULL);
             SQLGetData(sqlstatementhandle, 3, SQL_C_CHAR, address, 64, NULL);
-            MessageBox(NULL,(LPCSTR)("%d , %s , %s",&id,&name,&address) ,"Connection!",MB_ICONINFORMATION|MB_OK);
+            MessageBox(NULL,(LPCSTR)("%s ,%s ,%s ",&id,&name,&address) ,"Connection!",MB_ICONINFORMATION|MB_OK);
             //cout<<id<<" "<<name<<" "<<address<<endl;
+            //MessageBox(NULL,"Dane" ,"Connection!",MB_ICONINFORMATION|MB_OK);
         }
     }
 
