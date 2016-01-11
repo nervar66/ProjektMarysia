@@ -355,12 +355,12 @@ int FunkcjaBazodanowa(){
     SQLCHAR retconstring[1024];
     switch(SQLDriverConnect (sqlconnectionhandle, 
                 NULL, 
-                (SQLCHAR*)"DRIVER={SQL Server};SERVER=localhost, 3306;DATABASE=test;UID=root;PWD=Nervar66;", 
+                (SQLCHAR*)"DSN=mysqlster;", 
                 SQL_NTS, 
                 retconstring, 
                 1024, 
                 NULL,
-                SQL_DRIVER_NOPROMPT)){
+                SQL_DRIVER_COMPLETE)){
         case SQL_SUCCESS_WITH_INFO:
             show_error(SQL_HANDLE_DBC, sqlconnectionhandle);
             break;
@@ -387,7 +387,7 @@ int FunkcjaBazodanowa(){
             SQLGetData(sqlstatementhandle, 1, SQL_C_ULONG, &id, 0, NULL);
             SQLGetData(sqlstatementhandle, 2, SQL_C_CHAR, name, 64, NULL);
             SQLGetData(sqlstatementhandle, 3, SQL_C_CHAR, address, 64, NULL);
-            MessageBox(NULL,(LPCSTR)("%d , %d , %d",&id,&name,&address) ,"Connection!",MB_ICONINFORMATION|MB_OK);
+            MessageBox(NULL,(LPCSTR)("%d , %s , %s",&id,&name,&address) ,"Connection!",MB_ICONINFORMATION|MB_OK);
             //cout<<id<<" "<<name<<" "<<address<<endl;
         }
     }
@@ -430,8 +430,8 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 				}
 				case Chconn: {
 					HANDLE Handle_Of_Thread_1 = CreateThread( NULL, 0,FunkcjaConnectowa, &Data_Of_Thread_1, 0, NULL);
-					Array_Of_Thread_Handles[0] = Handle_Of_Thread_1;
-					WaitForMultipleObjects( 3, Array_Of_Thread_Handles, TRUE, INFINITE);
+					//Array_Of_Thread_Handles[0] = Handle_Of_Thread_1;
+					WaitForSingleObject( Handle_Of_Thread_1, 500);
 					CloseHandle(Handle_Of_Thread_1);
 					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
 					break;
@@ -439,8 +439,8 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 				
 				case DBtest: {
 					HANDLE Handle_Of_Thread_2 = CreateThread( NULL, 0,FunkcjaBazodanowa, &Data_Of_Thread_1, 0, NULL);
-					Array_Of_Thread_Handles[1] = Handle_Of_Thread_2;
-					WaitForMultipleObjects( 3, Array_Of_Thread_Handles, TRUE, INFINITE);
+					//Array_Of_Thread_Handles[1] = Handle_Of_Thread_2;
+					WaitForSingleObject( Handle_Of_Thread_2, 500);
 					CloseHandle(Handle_Of_Thread_2);
 					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
 					break;

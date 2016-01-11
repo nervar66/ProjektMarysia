@@ -4,3 +4,5 @@ zapytanie do serwisu
 http://api.wunderground.com/api/5df3f8dcf842e4e7/geolookup/conditions/forecast/q/Poland/Warsaw.json
 wątki
 http://www.codeproject.com/Articles/13557/Creating-Threads-using-the-CreateThread-API
+sesja kryt
+https://pl.wikipedia.org/wiki/Sekcja_krytyczna
