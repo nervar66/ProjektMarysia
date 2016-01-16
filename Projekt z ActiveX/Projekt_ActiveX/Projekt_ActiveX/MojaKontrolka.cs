@@ -19,7 +19,7 @@ namespace Projekt_ActiveX
 
         public void show()
         {
-            Console.WriteLine("I launch scripts for a living.");
+            Console.WriteLine("Test");
         }
 
         protected override void OnKeyPress(KeyPressEventArgs e)
