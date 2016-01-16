@@ -465,7 +465,6 @@ LRESULT CALLBACK WndProc2(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 	switch(Message) {
 		
 		/* Upon destruction, tell the main thread to stop */
-		//Tu jest bug trzeba przechwyciæ zdarzenie zanim zamknie siê okno
 		case WM_CLOSE: {
 			switch(MessageBox(NULL, "Chcesz zamkn¹æ?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
 						case IDYES:{
