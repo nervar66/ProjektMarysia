@@ -1,0 +1,6 @@
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\bin\Debug\Projekt_ActiveX.dll
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\bin\Debug\Projekt_ActiveX.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\obj\Debug\Projekt_ActiveX.csprojResolveAssemblyReference.cache
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\obj\Debug\Projekt_ActiveX.dll
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\obj\Debug\Projekt_ActiveX.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\bin\Debug\Projekt_ActiveX.tlb
