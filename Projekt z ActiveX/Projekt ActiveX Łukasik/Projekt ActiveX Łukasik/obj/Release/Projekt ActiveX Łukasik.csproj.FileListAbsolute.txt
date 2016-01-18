@@ -1,0 +1,7 @@
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt ActiveX Łukasik\Projekt ActiveX Łukasik\bin\Release\Projekt ActiveX Łukasik.dll
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt ActiveX Łukasik\Projekt ActiveX Łukasik\bin\Release\Projekt ActiveX Łukasik.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt ActiveX Łukasik\Projekt ActiveX Łukasik\obj\Release\Projekt_ActiveX_Łukasik.CSActiveXCtrl.resources
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt ActiveX Łukasik\Projekt ActiveX Łukasik\obj\Release\Projekt ActiveX Łukasik.csproj.GenerateResource.Cache
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt ActiveX Łukasik\Projekt ActiveX Łukasik\obj\Release\Projekt ActiveX Łukasik.dll
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt ActiveX Łukasik\Projekt ActiveX Łukasik\obj\Release\Projekt ActiveX Łukasik.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt ActiveX Łukasik\Projekt ActiveX Łukasik\obj\Release\Projekt ActiveX Łukasik.csproj.ResolveComReference.cache
