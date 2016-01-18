@@ -35,36 +35,52 @@
 	HWND hwnd3;
 	HANDLE Handle_Of_Thread_1 = 0;
 	HWND hText,hText2;
-
-int FunkcjaConnectowa(){
+	CRITICAL_SECTION g_Section;
+	CRITICAL_SECTION g_Section1;
 	char buffer1[1024];
+	char buffer[100000];
+	char dest_buf[500];
+	
+int FunkcjaConnectowa(){
+	
+	 EnterCriticalSection( & g_Section );
+	//buffer1[0] = 0;
+	buffer[0] = 0;
+	LeaveCriticalSection( & g_Section );
+	
 	char *mess;
 	
 	WSADATA wsaData;
     if (WSAStartup(MAKEWORD(2,2), &wsaData) != 0) {
-        MessageBox(NULL, buffer1,"WSA startup failed",MB_ICONINFORMATION|MB_OK);
+        //MessageBox(NULL, buffer1,"WSA startup failed",MB_ICONINFORMATION|MB_OK);
+        
+       /* EnterCriticalSection( & g_Section );
+        buffer1[0]="s";
+        LeaveCriticalSection( & g_Section );*/
+        
         system("pause");
         return 1;
     }
     SOCKET Socket=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
     struct hostent *host;
-    //host = gethostbyname("4programmers.net");
+    
     host = gethostbyname("api.wunderground.com");
     SOCKADDR_IN SockAddr;
     SockAddr.sin_port=htons(80);
     SockAddr.sin_family=AF_INET;
     SockAddr.sin_addr.s_addr = *((unsigned long*)host->h_addr);
-     //MessageBox(NULL, buffer1,"Connecting",MB_ICONINFORMATION|MB_OK);
+    
     if(connect(Socket,(SOCKADDR*)(&SockAddr),sizeof(SockAddr)) != 0){
-        MessageBox(NULL, buffer1,"Could not connect",MB_ICONINFORMATION|MB_OK);
+        //MessageBox(NULL, buffer1,"Could not connect",MB_ICONINFORMATION|MB_OK);
+        
+       /* EnterCriticalSection( & g_Section );
+        buffer1[0]="s";
+        LeaveCriticalSection( & g_Section );*/
+        
         system("pause");
         return 1;
     }
-    //MessageBox(NULL, buffer1,"Connected",MB_ICONINFORMATION|MB_OK);
-   // send(Socket,"GET / HTTP/1.1\r\nHost: www.wunderground.com/cgi-bin/findweather/getForecast?query=Krakow%2C+Polska&MR=1.html\r\nConnection: close\r\n\r\n",
-	 //strlen("GET / HTTP/1.1\r\nHost: www.wunderground.com/cgi-bin/findweather/getForecast?query=Krakow%2C+Polska&MR=1.html\r\nConnection: close\r\n\r\n"),80);
-    //send(Socket,"GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n", strlen("GET / HTTP/1.1\r\nHost: api.wunderground.com\r\nConnection: close\r\n\r\n"),0);
-   // mess = "GET /C_sharp/Wprowadzenie_do_w%C4%85tk%C3%B3w HTTP/1.1\r\nHost: 4programmers.net\r\n\r\n";
+    
    	DWORD dlugosc = GetWindowTextLength( hText );
 	LPSTR Bufor =( LPSTR ) GlobalAlloc( GPTR, dlugosc + 1 );
 	GetWindowText( hText, Bufor, dlugosc + 1 );
@@ -72,7 +88,7 @@ int FunkcjaConnectowa(){
 	DWORD dlugosc2 = GetWindowTextLength( hText2 );
 	LPSTR Bufor2 =( LPSTR ) GlobalAlloc( GPTR, dlugosc2 + 1 );
 	GetWindowText( hText2, Bufor2, dlugosc2 + 1 );
-	//MessageBox(NULL, Bufor2, "Connecting",MB_ICONINFORMATION|MB_OK);
+	
 	
 	char* char1=(char*)Bufor;
 	char* char2=(char*)Bufor2;
@@ -91,18 +107,20 @@ int FunkcjaConnectowa(){
     {
        
     }
-	char buffer[2000];
+	
     int nDataLength;
     
-   // MessageBox(NULL, buffer,"test2",MB_ICONINFORMATION|MB_OK);
-    while ((nDataLength = recv(Socket,buffer,2000,0)) > 0){        
-        //int i = 0;
+   
+    /*while ((nDataLength = recv(Socket,buffer,2000,0)) > 0){        
+        
         MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
-        /*while (buffer[i] >= 32 || buffer[i] == '\n' || buffer[i] == '\r') {
-            MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
-            i += 1;
-        }*/
-    }
+        
+    }*/
+    
+    EnterCriticalSection( & g_Section );
+    recv(Socket,buffer,100000,0);
+    LeaveCriticalSection( & g_Section );
+    
     closesocket(Socket);
         WSACleanup();
 }
@@ -338,6 +356,11 @@ void show_error(unsigned int handletype, const SQLHANDLE handle){
 
 int FunkcjaBazodanowa(){
 	
+	EnterCriticalSection( & g_Section1 );
+	//buffer1[0] = 0;
+	dest_buf[0] = 0;
+	LeaveCriticalSection( & g_Section1 );
+	
     SQLHANDLE sqlenvhandle;    
     SQLHANDLE sqlconnectionhandle;
     SQLHANDLE sqlstatementhandle;
@@ -388,12 +411,13 @@ int FunkcjaBazodanowa(){
             SQLGetData(sqlstatementhandle, 2, SQL_C_CHAR, name, 64, NULL);
             SQLGetData(sqlstatementhandle, 3, SQL_C_CHAR, address, 64, NULL);
             
-            char dest_buf[500];
+            EnterCriticalSection( & g_Section1 );
             wsprintf (dest_buf, "%s%s", dest_buf, id);
             wsprintf (dest_buf, "%s%s", dest_buf, name);
             wsprintf (dest_buf, "%s%s", dest_buf, address);
+            LeaveCriticalSection( & g_Section1 );
             
-            MessageBox(NULL,/*(LPCSTR)("%s ,%s ,%s ",&id,&name,&address)*/ dest_buf,"Connection!",MB_ICONINFORMATION|MB_OK);
+            //MessageBox(NULL, dest_buf,"Connection!",MB_ICONINFORMATION|MB_OK);
             //cout<<id<<" "<<name<<" "<<address<<endl;
             //MessageBox(NULL,"Dane" ,"Connection!",MB_ICONINFORMATION|MB_OK);
         }
@@ -408,6 +432,8 @@ int FunkcjaBazodanowa(){
 }
 
 LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) {
+	
+	
 	int Data_Of_Thread_1 = 1;
 	int Data_Of_Thread_2 = 1;
 	HANDLE Array_Of_Thread_Handles[3];
@@ -436,20 +462,32 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 					break;
 				}
 				case Chconn: {
+					InitializeCriticalSection( & g_Section );
 					HANDLE Handle_Of_Thread_1 = CreateThread( NULL, 0,FunkcjaConnectowa, &Data_Of_Thread_1, 0, NULL);
 					//Array_Of_Thread_Handles[0] = Handle_Of_Thread_1;
-					WaitForSingleObject( Handle_Of_Thread_1, 500);
+					//WaitForSingleObject( Handle_Of_Thread_1, 500);
 					CloseHandle(Handle_Of_Thread_1);
 					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
+					/*if(buffer1[0] == 0)
+					MessageBox(NULL, "Cos sie stalo zlego!","Watek pogodowy",MB_ICONINFORMATION|MB_OK);*/
+					if(buffer[0] != 0)
+					MessageBox(NULL,buffer,"Watek pogodowy",MB_ICONINFORMATION|MB_OK);
+					WaitForSingleObject( Handle_Of_Thread_1, 500);
+					//DeleteCriticalSection(& g_Section);
 					break;
 				}
 				
 				case DBtest: {
+					InitializeCriticalSection( & g_Section1 );
 					HANDLE Handle_Of_Thread_2 = CreateThread( NULL, 0,FunkcjaBazodanowa, &Data_Of_Thread_1, 0, NULL);
 					//Array_Of_Thread_Handles[1] = Handle_Of_Thread_2;
-					WaitForSingleObject( Handle_Of_Thread_2, 500);
+					//WaitForSingleObject( Handle_Of_Thread_2, 500);
 					CloseHandle(Handle_Of_Thread_2);
 					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
+					if(buffer[0] != 0)
+					MessageBox(NULL, dest_buf,"Connection!",MB_ICONINFORMATION|MB_OK);
+					WaitForSingleObject( Handle_Of_Thread_2, 500);
+					//DeleteCriticalSection(& g_Section1);
 					break;
 				}
 			}
@@ -460,6 +498,8 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 		default:
 			return DefWindowProc(hwnd, Message, wParam, lParam);
 	}
+	
+	
 	return 0;
 }
 
