@@ -36,17 +36,25 @@
 	HANDLE Handle_Of_Thread_1 = 0;
 	HWND hText,hText2;
 	CRITICAL_SECTION g_Section;
+	int StatusWatek1=-1;   // -1 niegdy nie uruchomiony, 0- w lasnie poobiera dane , 1- pora l dane pprawnie
 	CRITICAL_SECTION g_Section1;
+	int StatusWatek2=-1;
+		
+		
+		
 	char buffer1[1024];
-	char buffer[100000];
-	char dest_buf[500];
+	char buffer_w1[100000]; // dane z watku1 
+	char dest_buf_w2[500];
 	
 int FunkcjaConnectowa(){
 	
 	 EnterCriticalSection( & g_Section );
+	 StatusWatek1=0;
+	 LeaveCriticalSection( & g_Section );
+	 	char buffer[100000];
 	//buffer1[0] = 0;
 	buffer[0] = 0;
-	//LeaveCriticalSection( & g_Section );
+	//
 	
 	char *mess;
 	
@@ -119,7 +127,14 @@ int FunkcjaConnectowa(){
     
     //EnterCriticalSection( & g_Section );
     recv(Socket,buffer,100000,0);
+    //LeaveCriticalSection( & g_Section );
+    
+    EnterCriticalSection( & g_Section );
+    //buffer_w1=buffer;
+    wsprintf(buffer_w1, "%s%s", buffer_w1, buffer);
+    StatusWatek1=1;
     LeaveCriticalSection( & g_Section );
+    //wsprintf (dest_buf, "%s%s", dest_buf, char5);
     
     closesocket(Socket);
         WSACleanup();
@@ -355,11 +370,12 @@ void show_error(unsigned int handletype, const SQLHANDLE handle){
 }    
 
 int FunkcjaBazodanowa(){
+	char dest_buf[500];
 	
 	EnterCriticalSection( & g_Section1 );
-	//buffer1[0] = 0;
-	dest_buf[0] = 0;
-	//LeaveCriticalSection( & g_Section1 );
+	//dest_buf[0] = 0;
+	StatusWatek2=0;
+	LeaveCriticalSection( & g_Section1 );
 	
     SQLHANDLE sqlenvhandle;    
     SQLHANDLE sqlconnectionhandle;
@@ -416,16 +432,24 @@ int FunkcjaBazodanowa(){
             wsprintf (dest_buf, "%s%s", dest_buf, name);
             wsprintf (dest_buf, "%s%s", dest_buf, address);
             
-            
+            EnterCriticalSection( & g_Section1 );
+	//dest_buf_w2=dest_buf;
+	StatusWatek2=1;
+	wsprintf(dest_buf_w2, "%s%s", dest_buf_w2, dest_buf);
+	LeaveCriticalSection( & g_Section1 );	
+    
+    
             //MessageBox(NULL, dest_buf,"Connection!",MB_ICONINFORMATION|MB_OK);
             //cout<<id<<" "<<name<<" "<<address<<endl;
             //MessageBox(NULL,"Dane" ,"Connection!",MB_ICONINFORMATION|MB_OK);
         }
     }
-	LeaveCriticalSection( & g_Section1 );
+    
+    
+	
 	FINISHED:
-    SQLFreeHandle(SQL_HANDLE_STMT, sqlstatementhandle );
-    SQLDisconnect(sqlconnectionhandle);
+	SQLFreeHandle(SQL_HANDLE_STMT, sqlstatementhandle );
+	SQLDisconnect(sqlconnectionhandle);
     SQLFreeHandle(SQL_HANDLE_DBC, sqlconnectionhandle);
     SQLFreeHandle(SQL_HANDLE_ENV, sqlenvhandle);
     
@@ -466,28 +490,54 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 					HANDLE Handle_Of_Thread_1 = CreateThread( NULL, 0,FunkcjaConnectowa, &Data_Of_Thread_1, 0, NULL);
 					//Array_Of_Thread_Handles[0] = Handle_Of_Thread_1;
 					//WaitForSingleObject( Handle_Of_Thread_1, 500);
-					CloseHandle(Handle_Of_Thread_1);
+					WaitForSingleObject( Handle_Of_Thread_1, 10000);
 					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
 					/*if(buffer1[0] == 0)
 					MessageBox(NULL, "Cos sie stalo zlego!","Watek pogodowy",MB_ICONINFORMATION|MB_OK);*/
-					if(buffer[0] != 0)
-					MessageBox(NULL,buffer,"Watek pogodowy",MB_ICONINFORMATION|MB_OK);
-					WaitForSingleObject( Handle_Of_Thread_1, 500);
+					
+				//	WaitForSingleObject( Handle_Of_Thread_1, 10000);
+				/*	if (WaitForSingleObject( Handle_Of_Thread_1, 100000) ==WAIT_OBJECT_0){}
+        			else{
+    					MessageBox(NULL,"Proces przekroczyl czas!","Wszystko ok",MB_ICONINFORMATION|MB_OK);
+					}*/
+					if (StatusWatek1==0) {
+						MessageBox(NULL,"Wyst¹pi³ b³¹d w W¹tku","Coœ nie tak.",MB_ICONINFORMATION|MB_OK);
+					}
+					if (StatusWatek1==1) {
+						MessageBox(NULL,buffer_w1,"Wszystko ok",MB_ICONINFORMATION|MB_OK);
+					}
+					
+        
+					//MessageBox(NULL,buffer,"Watek pogodowy",MB_ICONINFORMATION|MB_OK);
+					
 					//DeleteCriticalSection(& g_Section);
+					CloseHandle(Handle_Of_Thread_1);
 					break;
 				}
 				
 				case DBtest: {
 					//InitializeCriticalSection( & g_Section1 );
-					HANDLE Handle_Of_Thread_2 = CreateThread( NULL, 0,FunkcjaBazodanowa, &Data_Of_Thread_1, 0, NULL);
+					HANDLE Handle_Of_Thread_2 = CreateThread( NULL, 0,FunkcjaBazodanowa, &Data_Of_Thread_2, 0, NULL);
 					//Array_Of_Thread_Handles[1] = Handle_Of_Thread_2;
 					//WaitForSingleObject( Handle_Of_Thread_2, 500);
-					CloseHandle(Handle_Of_Thread_2);
+					//WaitForSingleObject( Handle_Of_Thread_2, 500);
 					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
-					if(buffer[0] != 0)
-					MessageBox(NULL, dest_buf,"Connection!",MB_ICONINFORMATION|MB_OK);
-					WaitForSingleObject( Handle_Of_Thread_2, 500);
-					//DeleteCriticalSection(& g_Section1);
+					
+					//WaitForSingleObject( Handle_Of_Thread_2,10000);
+					if (WaitForSingleObject( Handle_Of_Thread_2,100000) ==WAIT_OBJECT_0){
+					if(StatusWatek2==0){
+						MessageBox(NULL, "Blad w watku!","Wszystko ok!",MB_ICONINFORMATION|MB_OK);
+					}
+					if(StatusWatek2==1){
+						MessageBox(NULL, dest_buf_w2,"Wszystko ok!",MB_ICONINFORMATION|MB_OK);
+					}
+					
+					}
+        			else{
+    					MessageBox(NULL,"Proces przekroczyl czas!","Wszystko ok",MB_ICONINFORMATION|MB_OK);
+					}
+					memset(dest_buf_w2, 0, sizeof dest_buf_w2);
+					CloseHandle(Handle_Of_Thread_2);
 					break;
 				}
 			}
@@ -498,6 +548,7 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 		default:
 			return DefWindowProc(hwnd, Message, wParam, lParam);
 	}
+	
 	
 	
 	return 0;
