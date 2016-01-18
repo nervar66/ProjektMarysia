@@ -46,7 +46,7 @@ int FunkcjaConnectowa(){
 	 EnterCriticalSection( & g_Section );
 	//buffer1[0] = 0;
 	buffer[0] = 0;
-	LeaveCriticalSection( & g_Section );
+	//LeaveCriticalSection( & g_Section );
 	
 	char *mess;
 	
@@ -117,7 +117,7 @@ int FunkcjaConnectowa(){
         
     }*/
     
-    EnterCriticalSection( & g_Section );
+    //EnterCriticalSection( & g_Section );
     recv(Socket,buffer,100000,0);
     LeaveCriticalSection( & g_Section );
     
@@ -359,7 +359,7 @@ int FunkcjaBazodanowa(){
 	EnterCriticalSection( & g_Section1 );
 	//buffer1[0] = 0;
 	dest_buf[0] = 0;
-	LeaveCriticalSection( & g_Section1 );
+	//LeaveCriticalSection( & g_Section1 );
 	
     SQLHANDLE sqlenvhandle;    
     SQLHANDLE sqlconnectionhandle;
@@ -411,18 +411,18 @@ int FunkcjaBazodanowa(){
             SQLGetData(sqlstatementhandle, 2, SQL_C_CHAR, name, 64, NULL);
             SQLGetData(sqlstatementhandle, 3, SQL_C_CHAR, address, 64, NULL);
             
-            EnterCriticalSection( & g_Section1 );
+            //EnterCriticalSection( & g_Section1 );
             wsprintf (dest_buf, "%s%s", dest_buf, id);
             wsprintf (dest_buf, "%s%s", dest_buf, name);
             wsprintf (dest_buf, "%s%s", dest_buf, address);
-            LeaveCriticalSection( & g_Section1 );
+            
             
             //MessageBox(NULL, dest_buf,"Connection!",MB_ICONINFORMATION|MB_OK);
             //cout<<id<<" "<<name<<" "<<address<<endl;
             //MessageBox(NULL,"Dane" ,"Connection!",MB_ICONINFORMATION|MB_OK);
         }
     }
-
+	LeaveCriticalSection( & g_Section1 );
 	FINISHED:
     SQLFreeHandle(SQL_HANDLE_STMT, sqlstatementhandle );
     SQLDisconnect(sqlconnectionhandle);
@@ -462,7 +462,7 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 					break;
 				}
 				case Chconn: {
-					InitializeCriticalSection( & g_Section );
+					//InitializeCriticalSection( & g_Section );
 					HANDLE Handle_Of_Thread_1 = CreateThread( NULL, 0,FunkcjaConnectowa, &Data_Of_Thread_1, 0, NULL);
 					//Array_Of_Thread_Handles[0] = Handle_Of_Thread_1;
 					//WaitForSingleObject( Handle_Of_Thread_1, 500);
@@ -478,7 +478,7 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 				}
 				
 				case DBtest: {
-					InitializeCriticalSection( & g_Section1 );
+					//InitializeCriticalSection( & g_Section1 );
 					HANDLE Handle_Of_Thread_2 = CreateThread( NULL, 0,FunkcjaBazodanowa, &Data_Of_Thread_1, 0, NULL);
 					//Array_Of_Thread_Handles[1] = Handle_Of_Thread_2;
 					//WaitForSingleObject( Handle_Of_Thread_2, 500);
@@ -541,6 +541,8 @@ LRESULT CALLBACK WndProc2(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 
 /* The 'main' function of Win32 GUI programs: this is where execution starts */
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+	InitializeCriticalSection( & g_Section );
+	InitializeCriticalSection( & g_Section1 );
 	WNDCLASSEX wc; /* A properties struct of our window */
 	MSG msg; /* A temporary location for all messages */
 
@@ -652,5 +654,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		TranslateMessage(&msg); /* Translate key codes to chars if present */
 		DispatchMessage(&msg); /* Send it to WndProc */
 	}
+	DeleteCriticalSection(& g_Section);
+	DeleteCriticalSection(& g_Section1);
 	return msg.wParam;
 }
