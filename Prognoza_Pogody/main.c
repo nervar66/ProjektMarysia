@@ -36,7 +36,7 @@
 	HANDLE Handle_Of_Thread_1 = 0;
 	HWND hText,hText2;
 	CRITICAL_SECTION g_Section;
-	int StatusWatek1=-1;   // -1 niegdy nie uruchomiony, 0- w lasnie poobiera dane , 1- pora l dane pprawnie
+	int StatusWatek1=-1;   
 	CRITICAL_SECTION g_Section1;
 	int StatusWatek2=-1;
 		
@@ -44,31 +44,26 @@
 		
 	char buffer1[1024];
 	char buffer_w1[100000]; // dane z watku1 
-	char dest_buf_w2[500];
-	
+	char dest_buf_w2[500]; // dane z watku2
+	SQLCHAR message_w2[500]; // komunikat bledu w2
 int FunkcjaConnectowa(){
 	
-	 EnterCriticalSection( & g_Section );
-	 StatusWatek1=0;
-	 LeaveCriticalSection( & g_Section );
-	 	char buffer[100000];
-	//buffer1[0] = 0;
+	char buffer[100000];
 	buffer[0] = 0;
-	//
+	
 	
 	char *mess;
 	
 	WSADATA wsaData;
     if (WSAStartup(MAKEWORD(2,2), &wsaData) != 0) {
-        //MessageBox(NULL, buffer1,"WSA startup failed",MB_ICONINFORMATION|MB_OK);
-        
-       /* EnterCriticalSection( & g_Section );
-        buffer1[0]="s";
-        LeaveCriticalSection( & g_Section );*/
-        
+       // MessageBox(NULL, "dsa","WSA startup failed",MB_ICONINFORMATION|MB_OK);
+        EnterCriticalSection( & g_Section );
+	 	StatusWatek1=4;
+	 	LeaveCriticalSection( & g_Section );
         system("pause");
         return 1;
     }
+  
     SOCKET Socket=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
     struct hostent *host;
     
@@ -79,12 +74,9 @@ int FunkcjaConnectowa(){
     SockAddr.sin_addr.s_addr = *((unsigned long*)host->h_addr);
     
     if(connect(Socket,(SOCKADDR*)(&SockAddr),sizeof(SockAddr)) != 0){
-        //MessageBox(NULL, buffer1,"Could not connect",MB_ICONINFORMATION|MB_OK);
-        
-       /* EnterCriticalSection( & g_Section );
-        buffer1[0]="s";
-        LeaveCriticalSection( & g_Section );*/
-        
+        EnterCriticalSection( & g_Section );
+	 	StatusWatek1=3;
+	 	LeaveCriticalSection( & g_Section );
         system("pause");
         return 1;
     }
@@ -108,31 +100,36 @@ int FunkcjaConnectowa(){
 	wsprintf (dest_buf, "%s%s", dest_buf, char4);
 	wsprintf (dest_buf, "%s%s", dest_buf, char2);
 	wsprintf (dest_buf, "%s%s", dest_buf, char5);
-	
+
 	
 	mess = dest_buf;
     if(send(Socket , mess , strlen(mess) , 0) < 0)
     {
-       
+        EnterCriticalSection( & g_Section );
+	 	StatusWatek1=2;
+	 	LeaveCriticalSection( & g_Section );
     }
 	
     int nDataLength;
     
    
-    /*while ((nDataLength = recv(Socket,buffer,2000,0)) > 0){        
+    while ((nDataLength = recv(Socket,buffer,2000,0)) > 0){        
         
-        MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
-        
-    }*/
+       // MessageBox(NULL, buffer, "Connecting",MB_ICONINFORMATION|MB_OK);
+        EnterCriticalSection( & g_Section );
+        wsprintf (buffer_w1, "%s%s", buffer_w1, buffer);
+	 	StatusWatek1=1;
+	 	LeaveCriticalSection( & g_Section );
+    }
     
     //EnterCriticalSection( & g_Section );
-    recv(Socket,buffer,100000,0);
+   // recv(Socket,buffer,100000,0);
     //LeaveCriticalSection( & g_Section );
     
     EnterCriticalSection( & g_Section );
-    //buffer_w1=buffer;
-    wsprintf(buffer_w1, "%s%s", buffer_w1, buffer);
-    StatusWatek1=1;
+  
+   // wsprintf(buffer_w1, "%s%s", buffer_w1, buffer);
+    StatusWatek1=0;
     LeaveCriticalSection( & g_Section );
     //wsprintf (dest_buf, "%s%s", dest_buf, char5);
     
@@ -267,7 +264,6 @@ void GenerateButtonsWeather(HWND parent, HINSTANCE hInstance){
 /* This is where all the input to the window goes to */
 LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) {
 	switch(Message) {
-		//LPCTSTR Caption = L"Application Programming Interface";
 		/* Upon destruction, tell the main thread to stop */
 		case WM_CLOSE: {
 			switch(MessageBox(NULL, "Chcesz zamkn¹æ?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
@@ -329,9 +325,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 }
 
 void GenerateButtons(HWND parent, HINSTANCE hInstance){
-	
-	//static HWND hwnd_ed_u;
-	
 	CreateWindow(TEXT("STATIC"), TEXT("Witaj w programie Prognoza Pogody."),
                               WS_CHILD | WS_VISIBLE ,
                               10, 10, 350, 25,
@@ -364,9 +357,12 @@ void show_error(unsigned int handletype, const SQLHANDLE handle){
     SQLCHAR sqlstate[1024];
     SQLCHAR message[1024];
     if(SQL_SUCCESS == SQLGetDiagRec(handletype, handle, 1, sqlstate, NULL, message, 1024, NULL)){
-    	MessageBox(NULL,(LPCSTR)("Message: %d nSQLSTATE: %d",&message,&sqlstate), "Connection!",MB_ICONINFORMATION|MB_OK);
+    	EnterCriticalSection( & g_Section1 );
+    	StatusWatek2=2;
+    	wsprintf (message_w2, "%s%s", message_w2, message);
         //cout<<"Message: "<<message<<"nSQLSTATE: "<<sqlstate<<endl;
-}	
+        LeaveCriticalSection( & g_Section1 );
+	}	
 }    
 
 int FunkcjaBazodanowa(){
@@ -433,15 +429,9 @@ int FunkcjaBazodanowa(){
             wsprintf (dest_buf, "%s%s", dest_buf, address);
             
             EnterCriticalSection( & g_Section1 );
-	//dest_buf_w2=dest_buf;
 	StatusWatek2=1;
 	wsprintf(dest_buf_w2, "%s%s", dest_buf_w2, dest_buf);
 	LeaveCriticalSection( & g_Section1 );	
-    
-    
-            //MessageBox(NULL, dest_buf,"Connection!",MB_ICONINFORMATION|MB_OK);
-            //cout<<id<<" "<<name<<" "<<address<<endl;
-            //MessageBox(NULL,"Dane" ,"Connection!",MB_ICONINFORMATION|MB_OK);
         }
     }
     
@@ -482,7 +472,6 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 			switch(wParam) {
 				case Closing2: {
 					ShowWindow(hwnd,SW_HIDE);
-					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
 					break;
 				}
 				case Chconn: {
@@ -490,53 +479,71 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 					HANDLE Handle_Of_Thread_1 = CreateThread( NULL, 0,FunkcjaConnectowa, &Data_Of_Thread_1, 0, NULL);
 					//Array_Of_Thread_Handles[0] = Handle_Of_Thread_1;
 					//WaitForSingleObject( Handle_Of_Thread_1, 500);
-					WaitForSingleObject( Handle_Of_Thread_1, 10000);
-					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
-					/*if(buffer1[0] == 0)
-					MessageBox(NULL, "Cos sie stalo zlego!","Watek pogodowy",MB_ICONINFORMATION|MB_OK);*/
+					DWORD rs = WaitForSingleObject( Handle_Of_Thread_1, 10000);
+				
 					
-				//	WaitForSingleObject( Handle_Of_Thread_1, 10000);
-				/*	if (WaitForSingleObject( Handle_Of_Thread_1, 100000) ==WAIT_OBJECT_0){}
-        			else{
-    					MessageBox(NULL,"Proces przekroczyl czas!","Wszystko ok",MB_ICONINFORMATION|MB_OK);
-					}*/
-					if (StatusWatek1==0) {
-						MessageBox(NULL,"Wyst¹pi³ b³¹d w W¹tku","Coœ nie tak.",MB_ICONINFORMATION|MB_OK);
+					if(rs == WAIT_OBJECT_0)
+					{
+						MessageBox(NULL,"Watek zakonczyl sie","Komunikat",MB_ICONINFORMATION|MB_OK);	 
 					}
-					if (StatusWatek1==1) {
-						MessageBox(NULL,buffer_w1,"Wszystko ok",MB_ICONINFORMATION|MB_OK);
+					else if(rs == WAIT_TIMEOUT)
+					{
+						MessageBox(NULL,"Przekroczono czas","Komunikat",MB_ICONINFORMATION|MB_OK);	        		
 					}
-					
-        
+					else if(rs == WAIT_FAILED)
+					{
+						MessageBox(NULL,"Funkcja nie powiodla sie","Komunikat",MB_ICONINFORMATION|MB_OK);	        		
+					}
+					else if(rs == WAIT_ABANDONED)
+					{
+						MessageBox(NULL,"Blad","Komunikat",MB_ICONINFORMATION|MB_OK);	  
+					}
 					//MessageBox(NULL,buffer,"Watek pogodowy",MB_ICONINFORMATION|MB_OK);
-					
+				
 					//DeleteCriticalSection(& g_Section);
 					CloseHandle(Handle_Of_Thread_1);
+						
+					if (StatusWatek1==-1) {
+						MessageBox(NULL,"Watek nie uruchomiony","Komunikat",MB_ICONINFORMATION|MB_OK);
+					}
+					else if (StatusWatek1==0) {
+						MessageBox(NULL,"Zakonczono pobieranie","Komunikat",MB_ICONINFORMATION|MB_OK);
+					}
+					else if (StatusWatek1==1) {
+						MessageBox(NULL,"Nadal pobieram dane","Komunikat",MB_ICONINFORMATION|MB_OK);
+					}
+					else if(StatusWatek1==2) {
+						MessageBox(NULL,"Wysylam zapytanie","Komunikat",MB_ICONINFORMATION|MB_OK);
+					}
+					else if(StatusWatek1==3) {
+						MessageBox(NULL,"Blad w funkcji connect","Komunikat",MB_ICONINFORMATION|MB_OK);
+					}
+					else if(StatusWatek1==4) {
+						MessageBox(NULL,"Blad inicjacji wsastartup","Komunikat",MB_ICONINFORMATION|MB_OK);
+					}
+					MessageBox(NULL,buffer_w1,"Komunikat",MB_ICONINFORMATION|MB_OK);
 					break;
 				}
 				
 				case DBtest: {
 					//InitializeCriticalSection( & g_Section1 );
 					HANDLE Handle_Of_Thread_2 = CreateThread( NULL, 0,FunkcjaBazodanowa, &Data_Of_Thread_2, 0, NULL);
-					//Array_Of_Thread_Handles[1] = Handle_Of_Thread_2;
-					//WaitForSingleObject( Handle_Of_Thread_2, 500);
-					//WaitForSingleObject( Handle_Of_Thread_2, 500);
-					//MessageBox(NULL, "Nie!","Odmowa",MB_ICONINFORMATION|MB_OK);
-					
-					//WaitForSingleObject( Handle_Of_Thread_2,10000);
-					if (WaitForSingleObject( Handle_Of_Thread_2,100000) ==WAIT_OBJECT_0){
+					if (WaitForSingleObject( Handle_Of_Thread_2,100000) !=WAIT_FAILED){
 					if(StatusWatek2==0){
-						MessageBox(NULL, "Blad w watku!","Wszystko ok!",MB_ICONINFORMATION|MB_OK);
+						MessageBox(NULL, "Blad w watku!","Blad!",MB_ICONINFORMATION|MB_OK);
 					}
 					if(StatusWatek2==1){
 						MessageBox(NULL, dest_buf_w2,"Wszystko ok!",MB_ICONINFORMATION|MB_OK);
 					}
-					
+					if(StatusWatek2==2){
+						MessageBox(NULL, message_w2,"Blad wdostepie do bazy!",MB_ICONINFORMATION|MB_OK);
+					}
 					}
         			else{
     					MessageBox(NULL,"Proces przekroczyl czas!","Wszystko ok",MB_ICONINFORMATION|MB_OK);
 					}
 					memset(dest_buf_w2, 0, sizeof dest_buf_w2);
+					memset(message_w2, 0, sizeof message_w2);
 					CloseHandle(Handle_Of_Thread_2);
 					break;
 				}
