@@ -68,6 +68,16 @@ int FunkcjaConnectowa(){
     struct hostent *host;
     
     host = gethostbyname("api.wunderground.com");
+    if(host != NULL){
+    }
+    else{
+		EnterCriticalSection( & g_Section );
+	 	StatusWatek1=7;
+	 	LeaveCriticalSection( & g_Section );
+	 	system("pause");
+	 	return 1;}
+	//WSACleanup();
+
     SOCKADDR_IN SockAddr;
     SockAddr.sin_port=htons(80);
     SockAddr.sin_family=AF_INET;
@@ -521,7 +531,11 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 					else if(StatusWatek1==4) {
 						MessageBox(NULL,"Blad inicjacji wsastartup","Komunikat",MB_ICONINFORMATION|MB_OK);
 					}
+					else if(StatusWatek1==7) {
+						MessageBox(NULL,"Nie ma Internetu","Komunikat",MB_ICONINFORMATION|MB_OK);
+					}
 					MessageBox(NULL,buffer_w1,"Komunikat",MB_ICONINFORMATION|MB_OK);
+					memset(buffer_w1, 0, sizeof buffer_w1);
 					break;
 				}
 				
