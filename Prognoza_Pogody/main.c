@@ -528,7 +528,7 @@ LRESULT CALLBACK WndProc1(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam)
 				case DBtest: {
 					//InitializeCriticalSection( & g_Section1 );
 					HANDLE Handle_Of_Thread_2 = CreateThread( NULL, 0,FunkcjaBazodanowa, &Data_Of_Thread_2, 0, NULL);
-					if (WaitForSingleObject( Handle_Of_Thread_2,100000) !=WAIT_FAILED){
+					if (WaitForSingleObject( Handle_Of_Thread_2,100000) !=WAIT_TIMEOUT){
 					if(StatusWatek2==0){
 						MessageBox(NULL, "Blad w watku!","Blad!",MB_ICONINFORMATION|MB_OK);
 					}
