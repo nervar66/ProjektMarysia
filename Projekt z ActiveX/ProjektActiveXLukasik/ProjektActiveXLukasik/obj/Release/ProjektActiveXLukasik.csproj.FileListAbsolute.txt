@@ -1,0 +1,6 @@
+c:\users\dayan\documents\visual studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\bin\Release\ProjektActiveXLukasik.dll
+c:\users\dayan\documents\visual studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\bin\Release\ProjektActiveXLukasik.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Release\ProjektActiveXLukasik.ProjektActiveXLukasikCtrl.resources
+c:\users\dayan\documents\visual studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Release\ProjektActiveXLukasik.csproj.GenerateResource.Cache
+c:\users\dayan\documents\visual studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Release\ProjektActiveXLukasik.dll
+c:\users\dayan\documents\visual studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Release\ProjektActiveXLukasik.pdb
