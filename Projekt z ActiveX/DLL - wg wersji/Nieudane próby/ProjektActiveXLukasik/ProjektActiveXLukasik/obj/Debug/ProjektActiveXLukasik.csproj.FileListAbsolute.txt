@@ -1,0 +1,12 @@
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt z ActiveX\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.csprojResolveAssemblyReference.cache
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt z ActiveX\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.ProjektActiveXLukasikCtrl.resources
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt z ActiveX\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.csproj.GenerateResource.Cache
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt z ActiveX\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.dll
+C:\Users\Dayan\Documents\GitHub\ProjektMarysia\Projekt z ActiveX\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.pdb
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\bin\Debug\ProjektActiveXLukasik.dll
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\bin\Debug\ProjektActiveXLukasik.pdb
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\bin\Debug\ProjektActiveXLukasik.tlb
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.ProjektActiveXLukasik.resources
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.csproj.GenerateResource.Cache
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.dll
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.pdb

@@ -1,0 +1,6 @@
+C:\Users\Dayan\Desktop\example\C#\Release\CSActiveX.dll
+C:\Users\Dayan\Desktop\example\C#\Release\CSActiveX.pdb
+C:\Users\Dayan\Desktop\example\C#\CSActiveX\obj\Release\CSActiveX.CSActiveXCtrl.resources
+C:\Users\Dayan\Desktop\example\C#\CSActiveX\obj\Release\CSActiveX.csproj.GenerateResource.Cache
+C:\Users\Dayan\Desktop\example\C#\CSActiveX\obj\Release\CSActiveX.dll
+C:\Users\Dayan\Desktop\example\C#\CSActiveX\obj\Release\CSActiveX.pdb

@@ -1,0 +1,3 @@
+Aplikacja z kontrolk¹ i dll musz¹ byæ w tym samym folderze
+
+kontrolka wykonana przez £ukasik Damian Informatyka II stopieñ ABiBD

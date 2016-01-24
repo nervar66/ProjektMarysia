@@ -1,0 +1,13 @@
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Debug\Okno z kontrolką.exe.config
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Debug\Okno z kontrolką.exe
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Debug\Okno z kontrolką.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Debug\MojaKontrolka.exe
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Debug\Projekt_ActiveX.dll
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Debug\MojaKontrolka.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Debug\Projekt_ActiveX.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Debug\Okno z kontrolką.csprojResolveAssemblyReference.cache
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Debug\Okno_z_kontrolką.Form1.resources
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Debug\Okno_z_kontrolką.Properties.Resources.resources
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Debug\Okno z kontrolką.csproj.GenerateResource.Cache
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Debug\Okno z kontrolką.exe
+c:\users\dayan\documents\visual studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Debug\Okno z kontrolką.pdb

@@ -1,0 +1,10 @@
+Przyk³ad do Visual Studios 2008
+https://code.msdn.microsoft.com/windowsdesktop/CSActiveX-c3f43e7d
+https://code.msdn.microsoft.com/windowsdesktop/CSActiveX-c3f43e7d
+Przyk³ad do Visual Studios 2010
+https://code.msdn.microsoft.com/csactivex-b86194f8
+Tutorial do stworzenia kontrolki na Internet Explorer
+http://www.olavaukan.com/2010/08/creating-an-activex-control-in-net-using-c/
+znalezione kody
+http://www.zorched.net/2009/01/01/register-and-unregister-com-dll-from-net-code/
+http://stackoverflow.com/questions/13108965/dll-was-loaded-but-the-dllregisterserver-entry-point-was-not-found

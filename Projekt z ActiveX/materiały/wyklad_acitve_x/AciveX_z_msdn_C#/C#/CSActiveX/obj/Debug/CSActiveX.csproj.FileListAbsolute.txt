@@ -1,0 +1,3 @@
+w:\uczelnia\zajecia\programowanie komponentowe\AciveX_freus_net\przyklad z msdn\C#\CSActiveX\obj\Debug\CSActiveX.csprojResolveAssemblyReference.cache
+w:\uczelnia\zajecia\programowanie komponentowe\AciveX_freus_net\przyklad z msdn\C#\CSActiveX\obj\Debug\CSActiveX.CSActiveXCtrl.resources
+w:\uczelnia\zajecia\programowanie komponentowe\AciveX_freus_net\przyklad z msdn\C#\CSActiveX\obj\Debug\CSActiveX.csproj.GenerateResource.Cache

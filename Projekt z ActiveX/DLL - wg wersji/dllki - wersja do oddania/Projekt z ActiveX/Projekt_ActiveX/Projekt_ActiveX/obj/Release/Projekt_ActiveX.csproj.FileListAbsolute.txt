@@ -1,0 +1,4 @@
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\bin\Release\Projekt_ActiveX.dll
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\bin\Release\Projekt_ActiveX.pdb
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\obj\Release\Projekt_ActiveX.dll
+c:\users\dayan\documents\visual studio 2015\Projects\Projekt_ActiveX\Projekt_ActiveX\obj\Release\Projekt_ActiveX.pdb

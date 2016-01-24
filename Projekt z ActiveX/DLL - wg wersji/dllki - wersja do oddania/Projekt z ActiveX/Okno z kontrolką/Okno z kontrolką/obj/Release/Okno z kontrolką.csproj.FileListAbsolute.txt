@@ -1,0 +1,12 @@
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Release\Okno z kontrolką.exe.config
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Release\Okno z kontrolką.exe
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Release\Okno z kontrolką.pdb
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Release\MojaKontrolka.exe
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Release\Projekt_ActiveX.dll
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Release\MojaKontrolka.pdb
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\bin\Release\Projekt_ActiveX.pdb
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Release\Okno_z_kontrolką.Form1.resources
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Release\Okno_z_kontrolką.Properties.Resources.resources
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Release\Okno z kontrolką.csproj.GenerateResource.Cache
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Release\Okno z kontrolką.exe
+C:\Users\Dayan\Documents\Visual Studio 2015\Projects\Okno z kontrolką\Okno z kontrolką\obj\Release\Okno z kontrolką.pdb
