@@ -206,7 +206,7 @@ void GenerateButtonsAuthors(HWND parent, HINSTANCE hInstance){
                               parent, (HMENU)(502),
                               hInstance, NULL);
                               
-    CreateWindow(TEXT("STATIC"), TEXT("in¿ Damian £ukasik"),
+    CreateWindow(TEXT("STATIC"), TEXT("in¿ Artur Œnioszek"),
                               WS_CHILD | WS_VISIBLE ,
                               50, 90, 200, 25,
                               parent, (HMENU)(502),
