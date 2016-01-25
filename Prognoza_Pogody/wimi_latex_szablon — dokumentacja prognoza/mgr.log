@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.6.12)  24 JAN 2016 18:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.6.12)  25 JAN 2016 11:38
 entering extended mode
 **C:/Users/Nefalem/Desktop/ProjektMarysia/Prognoza_Pogody/wimi_latex_szablon*â€
 ”*dokumentacja*prognoza/mgr.tex
@@ -943,15 +943,26 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 98.
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [3
 
-] [4
+]
+Overfull \hbox (6.24535pt too wide) in paragraph at lines 138--139
+[]\T1/lmr/m/n/12 connect(Socket,(SOCKADDR*)(&SockAddr),sizeof(SockAddr))-ustawi
+a po-ª¡-cze-nie dla
+ []
 
-] [5]
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+[4
+
+]
+Overfull \hbox (25.17035pt too wide) in paragraph at lines 154--155
+[]\T1/lmr/m/n/12 SQLAllocHandle(SQL_-HAN-DLE_-ENV, SQL_-NULL_-HAN-DLE, &sqlenvh
+andle)-alokuje
+ []
+
+[5] [6] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 124.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 124.
+(Font)              <5> on input line 220.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 220.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
@@ -959,63 +970,60 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [6
+) [7
 
 ]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [7]
-Overfull \vbox (0.30797pt too high) has occurred while \output is active []
+) [8]
+Overfull \vbox (171.30779pt too high) has occurred while \output is active []
 
 
-[8] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+[9] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
-File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [9]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 ) [10]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [11] [12]
+) [11]
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+) [12] [13]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
-File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [13]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 ) [14]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+) [15]
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [15]
+) [16]
 Overfull \vbox (0.30797pt too high) has occurred while \output is active []
 
 
-[16] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+[17] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [17]
+) [18]
 Overfull \vbox (85.80788pt too high) has occurred while \output is active []
 
 
-[18] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+[19] ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [19]
+) [20]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [20] [21]
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
-File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [22]
+) [21] [22]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 ) [23]
@@ -1024,57 +1032,61 @@ File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 ) [24]
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
-) [25] [26]
-[27] <menu.jpg, id=847, 301.72725pt x 255.95625pt>
+) [25]
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+) [26] [27]
+[28] <menu.jpg, id=864, 301.72725pt x 255.95625pt>
 File: menu.jpg Graphic file (type jpg)
  <use menu.jpg>
-Package pdftex.def Info: menu.jpg used on input line 950.
+Package pdftex.def Info: menu.jpg used on input line 1059.
 (pdftex.def)             Requested size: 211.20763pt x 179.16814pt.
 
-<autorzy.jpg, id=848, 301.72725pt x 253.54726pt>
+<autorzy.jpg, id=865, 301.72725pt x 253.54726pt>
 File: autorzy.jpg Graphic file (type jpg)
  <use autorzy.jpg>
-Package pdftex.def Info: autorzy.jpg used on input line 957.
+Package pdftex.def Info: autorzy.jpg used on input line 1066.
 (pdftex.def)             Requested size: 211.20763pt x 177.48184pt.
 
-<serwis.jpg, id=849, 292.6935pt x 235.47975pt>
+<serwis.jpg, id=866, 292.6935pt x 235.47975pt>
 File: serwis.jpg Graphic file (type jpg)
  <use serwis.jpg>
-Package pdftex.def Info: serwis.jpg used on input line 964.
+Package pdftex.def Info: serwis.jpg used on input line 1073.
 (pdftex.def)             Requested size: 204.88405pt x 164.8347pt.
- [28
+ [29
 
  <C:/Users/Nefalem/Desktop/ProjektMarysia/Prognoza_Pogody/wimi_latex_szablon â€
 ” dokumentacja prognoza/menu.jpg> <C:/Users/Nefalem/Desktop/ProjektMarysia/Prog
-noza_Pogody/wimi_latex_szablon â€” dokumentacja prognoza/autorzy.jpg>] [29 <C:/
+noza_Pogody/wimi_latex_szablon â€” dokumentacja prognoza/autorzy.jpg>] [30 <C:/
 Users/Nefalem/Desktop/ProjektMarysia/Prognoza_Pogody/wimi_latex_szablon â€” dok
 umentacja prognoza/serwis.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 977.
- [30
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1086.
+ [31
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 977.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1086.
 
 ("C:\Users\Nefalem\Desktop\ProjektMarysia\Prognoza_Pogody\wimi_latex_szablon â€
 ” dokumentacja prognoza\mgr.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 977.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 977.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1086.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1086.
+
 Package rerunfilecheck Info: File `mgr.out' has not changed.
 (rerunfilecheck)             Checksum: 914A2A90498B66D7439C66685D1DC6CA;261.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 977.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1086.
  ) 
 Here is how much of TeX's memory you used:
- 10564 strings out of 493921
- 156628 string characters out of 3144870
- 586808 words of memory out of 3000000
- 12918 multiletter control sequences out of 15000+200000
+ 10663 strings out of 493921
+ 157865 string characters out of 3144870
+ 615808 words of memory out of 3000000
+ 13003 multiletter control sequences out of 15000+200000
  51650 words of font info for 42 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 43i,12n,45p,991b,1831s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,12n,45p,645b,1831s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files (x86)
 /MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files (x86)/MiKTeX 2.9
@@ -1086,9 +1098,9 @@ rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files
  2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
 type1/public/lm/lmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
 /lm/lmtt8.pfb>
-Output written on mgr.pdf (30 pages, 442335 bytes).
+Output written on mgr.pdf (31 pages, 446012 bytes).
 PDF statistics:
- 1047 PDF objects out of 1200 (max. 8388607)
- 731 named destinations out of 1000 (max. 500000)
+ 1068 PDF objects out of 1200 (max. 8388607)
+ 745 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

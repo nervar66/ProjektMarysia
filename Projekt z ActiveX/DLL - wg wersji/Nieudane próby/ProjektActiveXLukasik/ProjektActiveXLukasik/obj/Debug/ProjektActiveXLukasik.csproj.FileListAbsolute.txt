@@ -10,3 +10,8 @@ C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\Proje
 C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.csproj.GenerateResource.Cache
 C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.dll
 C:\Users\Dayan\Documents\Visual Studio 2015\Projects\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.pdb
+C:\Users\Nefalem\Desktop\ProjektMarysia\Projekt z ActiveX\DLL - wg wersji\Nieudane próby\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.csprojResolveAssemblyReference.cache
+C:\Users\Nefalem\Desktop\ProjektMarysia\Projekt z ActiveX\DLL - wg wersji\Nieudane próby\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.ProjektActiveXLukasik.resources
+C:\Users\Nefalem\Desktop\ProjektMarysia\Projekt z ActiveX\DLL - wg wersji\Nieudane próby\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.csproj.GenerateResource.Cache
+C:\Users\Nefalem\Desktop\ProjektMarysia\Projekt z ActiveX\DLL - wg wersji\Nieudane próby\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.dll
+C:\Users\Nefalem\Desktop\ProjektMarysia\Projekt z ActiveX\DLL - wg wersji\Nieudane próby\ProjektActiveXLukasik\ProjektActiveXLukasik\obj\Debug\ProjektActiveXLukasik.pdb

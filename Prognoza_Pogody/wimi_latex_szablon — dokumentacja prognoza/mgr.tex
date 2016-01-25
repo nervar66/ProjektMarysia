@@ -105,16 +105,112 @@ Zdecydowano się więc na serwis pogodowy, który będzie pobierał dane z itern
 
 
 \chapter{Wykorzystane technologie}
-Windows API, lub krócej: WinAPI – interfejs programistyczny systemu Microsoft Windows – jest to zbiór funkcji, stałych i zmiennych umożliwiających działanie programu w systemie Microsoft Windows.
-Zbiór ten jest obszerny i zawiera funkcje do tworzenia okien programów, elementów interfejsu graficznego, obsługi zdarzeń oraz umożliwiające dostęp do innych aplikacji, funkcji sieciowych czy sprzętu w komputerze. Mianem WinAPI określamy standardowe funkcje przychodzące wraz z plikami bibliotek DLL (w 16-bitowych wersjach z rozszerzeniem .EXE) dostarczanymi z systemem, np. kernel32.dll, user32.dll, gdi32.dll, wsock32.dll, znajdującymi się w katalogu /WINDOWS/system32. Liczba plików bibliotek wzrasta w nowszych wersjach systemu Microsoft Windows. Może to powodować pewne problemy z uruchomieniem aplikacji napisanej dla starszej wersji systemu. Ze względu na dużą popularność systemu Microsoft Windows, obecnie większość środowisk programistycznych posiada zaimplementowane odpowiednie pliki nagłówkowe umożliwiające korzystanie z WinAPI.
+Komendy Sekcji krytycznej:
 
-GDI \eng{ang. Graphics Device Interface} - komponent Microsoft Windows pozwalający na odwzorowanie grafiki na urządzeniach zewnętrznych, np. drukarkach i monitorach.
+CRITICALSECTION gSection;-inicjalizacja zmiannej
 
-ODBC (\eng{ang. Open DataBase Connectivity} - otwarte łącze baz danych) - interfejs pozwalający programom łączyć się z systemami zarządzającymi bazami danych. Jest to API niezależne od języka programowania, systemu operacyjnego i bazy danych. Standard ten został opracowany przez SQL Access Group we wrześniu 1992 roku. W skład ODBC wchodzą wywołania wbudowane w aplikacje oraz sterowniki ODBC.
-Pierwsza implementacja ODBC pojawiła się w systemie Microsoft Windows, lecz obecnie możliwe jest korzystanie z niego na platformach Unix, OS/2 oraz Macintosh.
-W systemach bazodanowych typu klient-serwer (np. Oracle lub PostgreSQL) sterowniki dają dostęp do silnika baz danych, natomiast w programach dla komputerów osobistych sterowniki sięgają bezpośrednio do danych. Mechanizm ODBC współpracuje zarówno z bazami obsługującymi język SQL, jak i nieobsługującymi go - w tym ostatnim przypadku język SQL jest przekładany na oryginalny język bazy danych.
+InitializeCriticalSection( \& g\_Section ); inicjalizacja sekcji
 
-Definicje wzięte z serwisu wikipedia.com.
+EnterCriticalSection( \& g\_Section ); 
+	 	StatusWatek1=7;		-sekcja krytyczna ciało za zmiennymi których może kożystać 1 wątek
+LeaveCriticalSection(\& g\_Section );
+
+DeleteCriticalSection(\& g\_Section);-kasowanie sekcji krytycznej ogólnie zalończenie jej
+
+Komendy do połączenia http:
+
+WSAStartup(MAKEWORD(2,2), \&wsaData)-inicjalizacja użycia winsocka 
+
+Makeword - wybiera wersję biblioteki. W tym przypadku 2.2.
+
+\&wsaData - wskaźnik do struktury zawierającej informacje dotyczące implementacji Socketa
+
+ gethostbyname("api.wunderground.com");-odbiera informacje odnoszące się do host z bazy hosta
+ 
+ SOCKADDR\_IN SockAddr;
+ 
+    SockAddr.sin\_port=htons(80); - wybieramy port 80
+    
+    SockAddr.sin\_family=AF\_INET; -korzystamy z wersji IPv4
+    
+    SockAddr.sin\_addr.s\_addr = *((unsigned long*)host->h\_addr);-przechowuje informacje o sockecie port na przykład
+    
+    connect(Socket,(SOCKADDR*)(\&SockAddr),sizeof(SockAddr))-ustawia połączenie dla danego socketa
+    
+    SOCKADDR*(\&SockAddr) - wskaźnik do struktury zawierającej informacje o adresie IP
+    
+    sizeof(SockAddr) - rozmiar wskaźnika
+    
+    send(Socket , mess , strlen(mess) , 0) -wysyła dane dla wyspecyfikowanego socketa. Mess - zapytanie do strony, strlen(mess) - długość zapytania
+    
+    recv(Socket,buffer,2000,0))-odbiera dane z połączonego socketa. Buffer - bufor na odbierane dane, 2000 - rozmiar bufora
+    
+    closesocket(Socket); - zamkanie Socketa
+    
+        WSACleanup();-funkcje zamykają socket i bibliotekę
+        
+  Komendy do bazy danych:
+ 
+ SQLAllocHandle(SQL\_HANDLE\_ENV, SQL\_NULL\_HANDLE, \&sqlenvhandle)-alokuje środowisko , połączenie , stan, deskryptor. SQL\_HANDLE\_ENV - uchwyt do środowiska. SQL\_NULL\_HANDLE - uchwyt nadrzędny, w tym przypadku NULL. \&sqlenvhandle - wskaźnik do bufora, który zwraca uchwyt do zaalokowanej pamięci
+ 
+   SQLRETURN SQLSetEnvAttr(
+     SQLHENV      EnvironmentHandle, -uchwyt do środowiska
+     SQLINTEGER   Attribute, - atrybut, którego wartość ma być zmieniona
+     SQLPOINTER   ValuePtr, - wskaźnik do bufora z wartością dla atrybutu
+     SQLINTEGER   StringLength);-ustawia atrybuty które regulują aspekty środowiska
+     
+    SQLRETURN SQLDriverConnect(
+     SQLHDBC         ConnectionHandle, - uchwyt do połączenia
+     SQLHWND         WindowHandle, - uchwyt do okna
+     SQLCHAR *       InConnectionString, - odnośnik do sterownika w systemie
+     SQLSMALLINT     StringLength1, -długość odnośnika do sterownika
+     SQLCHAR *       OutConnectionString, - wskaźnik do bufora zawierającego nazwę sterownika
+     SQLSMALLINT     BufferLength, - wielkość bufora w znakach
+     SQLSMALLINT *   StringLength2Ptr, -wskaźnik do bufora zwracającego wielkość bufora w znakach
+     SQLUSMALLINT    DriverCompletion);-łączy z sterownikiem do bazy danych
+     
+     SQLRETURN SQLExecDirect(
+     SQLHSTMT     StatementHandle, - uchwyt do zapytania
+     SQLCHAR *    StatementText, - zapytanie
+     SQLINTEGER   TextLength);- długość zapytania
+     odpala zapytania do bazy danych 
+     
+     SQLRETURN SQLFreeHandle(
+     SQLSMALLINT   HandleType, - typ uchwytu
+     SQLHANDLE     Handle);-uchwyt, który ma być zwolniony
+     zwalnia zasoby połączone z środowiskiem itp.
+     
+     SQLRETURN SQLDisconnect(
+     SQLHDBC     ConnectionHandle);-uchwyt do połączenia
+     -zamyka połączenie powiązane z konkretnym handlerem
+     
+     Zmienne:
+     
+     WNDCLASSEX wc1;
+	WNDCLASSEX wc2; struktura przechowujące informacje o oknie
+	
+	HWND hwnd;
+	HWND hwnd2;
+	HWND hwnd3; -uchwyty do okien
+	
+	HANDLE Handle\_Of\_Thread\_1 = 0; - uchwyt do wątku
+	
+	HWND hText,hText2;
+	
+	CRITICALSECTION g\_Section; 
+	int StatusWatek1=-1;   -sekcja krytyczna 1 i jej status
+
+		
+		
+		
+	char buffer1[1024];
+	char buffer\_w1[100000]; // dane z watku1 
+	char dest\_buf\_w2[500]; // dane z watku2
+	SQLCHAR message\_w2[500]; // komunikat bledu w2
+     
+     
+  
+ 
 \chapter{Implementacja}
 W tym rozdziale opiszę po kolei funkcje i opowiem jak realizują założenia. Opis nalezy zacząć od głównej funkcji programu która wygląda naztępująco:
 		
@@ -200,15 +296,25 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 \begin{figure}[H]
 \centering
 \begin{lstlisting}[frame=single]	
-hwnd = CreateWindowEx(WS_EX_CLIENTEDGE,"WindowClass","Okno glowne",WS_VISIBLE|WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, /* x */
-		CW_USEDEFAULT, /* y */
-		420, /* width */
-		350, /* height */
-		NULL,NULL,hInstance,NULL);
+hwnd = CreateWindowEx(WS_EX_CLIENTEDGE, - rozszerzone style okien
+		"WindowClass", -nazwa klasy okna
+		"Okno glowne", - nazwa wyswietlana na oknie
+		WS_VISIBLE|WS_OVERLAPPEDWINDOW, -podstawowe style okien
+		CW_USEDEFAULT, /* x */ wspolrzedna x
+		CW_USEDEFAULT, /* y */ wspolrzedna y
+		420, /* width */ szerokosc okna
+		350, /* height */  wysokosc okna
+		NULL, uchwyt do okna nadrzednego
+		NULL, uchwyt do menu
+		hInstance, -uchwyt do aplikacji
+		NULL); wskaznik do struktury, przez ktora mozna przesylac dodatkowe informacje
 
 	if(hwnd == NULL) {
 		MessageBox(NULL, "Window Creation Failed!","Error!",MB_ICONEXCLAMATION|MB_OK);
+		NULL - uchwyt do okna wlasciciela
+		Windows Creation Failed! - tekst komunikatu
+		Error - tekst wyswietlany na pasku okna
+		MB_OK - przycisk
 		return 0;
 	}
 	hwnd2 = CreateWindowEx(WS_EX_CLIENTEDGE,"WindowClass1","Prognoza",WS_VISIBLE|WS_OVERLAPPEDWINDOW,
@@ -235,11 +341,13 @@ hwnd = CreateWindowEx(WS_EX_CLIENTEDGE,"WindowClass","Okno glowne",WS_VISIBLE|WS
 		return 0;
 	}
 
-	GenerateButtons(hwnd, hInstance);
+	GenerateButtons(hwnd, hInstance); - hwnd - uchwyt do okna, hInstance - uchwyt do aplikacji
 	GenerateButtonsWeather(hwnd2, hInstance);
 	GenerateButtonsAuthors(hwnd3, hInstance);
 	
 	ShowWindow(hwnd2,SW_HIDE);
+	hwnd2 - uchwyt do okna
+	Zmienia stan okna. SW_HIDE - ukrywa dane okno i uaktywnia inne.
 	ShowWindow(hwnd3,SW_HIDE);
 \end{lstlisting}
 \caption{Główna funkcja.}%
@@ -254,11 +362,12 @@ hwnd = CreateWindowEx(WS_EX_CLIENTEDGE,"WindowClass","Okno glowne",WS_VISIBLE|WS
 		sent to WndProc. Note that GetMessage blocks code flow until it receives something, so
 		this loop will not produce unreasonably high CPU usage
 	*/
-	while(GetMessage(&msg, NULL, 0, 0) > 0) { /* If no error is received... */
-		TranslateMessage(&msg); /* Translate key codes to chars if present */
-		DispatchMessage(&msg); /* Send it to WndProc */
+	while(GetMessage(&msg, NULL, 0, 0) > 0) { Pobiera wiadomosc msg. NULL - uchwyt do okna. Ostatnie 2 parametry to wartosc minimalna i 			maksymalna pobieranych wiadomosci. 
+		TranslateMessage(&msg); Tlumaczenie wiadomosci na znaki.
+		DispatchMessage(&msg); Przesylanie wiadomosci w odpowiednie miejsce.
+		
 	}
-	DeleteCriticalSection(& g_Section);
+	DeleteCriticalSection(& g_Section); Usuwanie sekcji krytycznej.
 	DeleteCriticalSection(& g_Section1);
 	return msg.wParam;
 }
@@ -275,7 +384,7 @@ W funkcji głównej znajdziemy przede wszystkim informacje o liczbie okien, kolo
 LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) {
 	switch(Message) {
 		/* Upon destruction, tell the main thread to stop */
-		case WM_CLOSE: {
+		case WM_CLOSE: { przypadek zamkniecia glownego okna
 			switch(MessageBox(NULL, "Chcesz zamknac?","Zamykanie?",MB_ICONQUESTION|MB_YESNO)){
 						case IDYES:{
 							PostQuitMessage(0);
@@ -353,17 +462,17 @@ Jak można zauważyć powyżej zdażenia są przechwytywane i rozpatrywane za po
 \begin{lstlisting}[frame=single]	
 LRESULT OnPaint(HWND hwnd){
 	PAINTSTRUCT ps;
-	HDC hdc;
+	HDC hdc; kontekst urzadzenia
 	int l=0;
 	//static int x,y;
 
 	hdc = BeginPaint(hwnd, &ps);
 	RECT rect;
-	GetClientRect(hwnd, &rect);
+	GetClientRect(hwnd, &rect); pobranie rozmiarow danego okna
 	
-	HBRUSH brush = CreateSolidBrush(RGB(0,0,255));
+	HBRUSH brush = CreateSolidBrush(RGB(0,0,255)); utworzenie pedzla o wybranym kolorze
 	//FillRect(hdc, &rect, brush);
-	SelectObject(hdc, brush);
+	SelectObject(hdc, brush); wybranie nowego obiektu do kontektstu urzadzenia
 	
 	
 	//Rainy claud
