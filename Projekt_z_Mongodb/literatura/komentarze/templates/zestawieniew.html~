@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href={% static 'komentarze/styles.css' %} />
+	<title>Zestawienie</title>
+</head>
+<body>
+
+	Wydatki:
+	<br>
+	<table>
+    <tr>
+        <th>tytul</th>
+        <th>wartosc</th>
+        <th>data</th>
+        <th>stalosc</th>
+    </tr>
+    {% for item in query_results2 %}
+    <tr> 
+        <td>{{ item.tytul }}</td>
+        <td>{{ item.wartosc }}</td>
+        <td>{{ item.data }}</td>
+        <td>{{ item.stalosc }}</td>
+    </tr>
+    {% endfor %}
+	</table>
+
+</body>
+</html>

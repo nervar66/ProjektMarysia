@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	{% load staticfiles %}
+	<meta content="text/html; charset=utf-8" http-equiv="content-type">
+	<link rel="stylesheet" type="text/css" href={% static 'komentarze/styles.css' %} />
+	<title>{% block tytul %}Biznes domowy{% endblock %}</title>
+</head>
+<body>
+	<table>
+<tr>
+	<td><a href="/wydatki/">Wydatki</a></td>	
+	<td><a href="/dochody/">Dochody</a></td>
+	<td><a href="/zestawienie/">Zestawienie</a></td>
+	<td><a href="/edytowanie/">Edycja</a></td>
+</tr>
+</table>
+	{% block body %}
+<h2>Witaj {{full_name}} któryś jest zalogowany!</h2>
+<p>Kliknij <a href="/logout/">here</a> by się wylogować!</p>
+</br>
+</br>
+</br>
+
+<table>
+<tr>
+	<td><a href="/wydatki/">Wydatki</a></td>	
+	<td><a href="/dochody/">Dochody</a></td>
+</tr>
+<tr>
+
+	<td><a href="/zestawienie/">Zestawienie</a></td>
+	<td><a href="/edytowanie/">Edycja</a></td>
+</tr>
+</table>
+{% endblock %}
+</body>
+</html>

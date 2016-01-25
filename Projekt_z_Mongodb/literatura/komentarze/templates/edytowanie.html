@@ -1,0 +1,61 @@
+{% extends "loggedin.html" %}
+{% block tytul %}Edycja{% endblock %}
+
+{% block body %}
+
+<h2>Edycja</h2>
+
+	<p>Dochody:</p>
+	<br>
+	<table>
+    	<tr>	
+		<th><p>id</p></th>
+		<th><p>tytul</p></th>
+		<th><p>wartosc</p></th>
+		<th><p>data</p></th>
+		<th><p>stalosc</p></th>
+		<th><p>kategoria</p></th>
+		<th><p></p></th>
+    	</tr>
+    {% for item in query %}
+    	<tr>
+		<form action="/edit1" method="POST">
+			{% csrf_token %}
+		<td><input type=hidden name="name1" value={{ item.id }}  readonly></td>
+		<td><p>{{ item.tytul }}</p></td>
+		<td><p>{{ item.wartosc }}</p></td>
+		<td><p>{{ item.data }}</p></td>
+		<td><p>{{ item.stalosc }}</p></td>
+		<td><p>{{ item.kategoria }}</p></td>
+		<td><input type="submit" value="zedytuj" ></td>	
+		</form>
+    	</tr>
+    {% endfor %}
+	</table>
+<br>
+<p>Wydatki:</p>
+	<br>
+	<table>
+    <tr>
+	<th><p>id</p></th>
+        <th><p>tytul</p></th>
+        <th><p>wartosc</p></th>
+        <th><p>data</p></th>
+        <th><p>stalosc</p></th>
+    </tr>
+    {% for itemn in query2 %}
+	    <tr> 
+		<form action="/edit2" method="POST">
+			{% csrf_token %}
+		<td><input type=hidden name="name1" value={{ itemn.id }}  readonly></td>
+		<td><p>{{ itemn.tytul }}</p></td>
+		<td><p>{{ itemn.wartosc }}</p></td>
+		<td><p>{{ itemn.data }}</p></td>
+		<td><p>{{ itemn.stalosc }}</p></td>
+		<td><input type="submit" value="zedytuj" ></td>
+		</form>
+	    </tr>
+    {% endfor %}
+	</table>
+
+{% endblock %}
