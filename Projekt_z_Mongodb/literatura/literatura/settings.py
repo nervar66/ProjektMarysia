@@ -65,19 +65,20 @@ WSGI_APPLICATION = 'literatura.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.dummy',
+        'ENGINE' : 'django_mongodb_engine',
+	'NAME' : 'my_database'
     }
 }
 
-from mongoengine import connect
-connect('budzetdb', username='PioDam', password='Nervar66')
-
-AUTHENTICATION_BACKENDS=(
-	'mongoengine.django.auth.MongoEngineBackend',
-)
-
-SESSION_ENGINE = 'mongoengine.django.sessions'
-SESSION_SERIALIZER = 'mongoengine.django.sessions.BSONSerializer'
+#from mongoengine import connect
+#connect('budzetdb', username='PioDam', password='Nervar66')
+#
+#AUTHENTICATION_BACKENDS=(
+#	'mongoengine.django.auth.MongoEngineBackend',
+#)
+#
+#SESSION_ENGINE = 'mongoengine.django.sessions'
+#SESSION_SERIALIZER = 'mongoengine.django.sessions.BSONSerializer'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

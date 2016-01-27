@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<link rel="stylesheet" href="style.css" />
+	<title>Artykuly</title>
+</head>
+<body>
+	<ol>
+	{% for item in object_list %}
+		<li>
+			<a href={% url "detail" item.pk %}>{{item.tytul}} </a>
+		</li>
+	{% endfor %}
+	</ol>
+	<br/>
+	<br/>
+	
+	<form action="form0" method="post">
+		{% csrf_token %}
+		{{ form }}
+		<input type="submit" value="Wyslij" />
+	</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href={% static 'komentarze/styles.css' %} />
+	<title>Zestawienie Wydatków</title>
+</head>
+<body>
+
+	<p>Wydatki:</p>
+	<br>
+	<table>
+    <tr>
+        <th><p>tytul</p></th>
+        <th><p>wartosc</p></th>
+        <th><p>data</p></th>
+        <th><p>stalosc</p></th>
+    </tr>
+    {% for itemn in query2 %}
+    <tr> 
+<<<<<<< HEAD
+        <td>{{ itemn.tytul }}</td>
+        <td>{{ itemn.wartosc }}</td>
+        <td>{{ itemn.data }}</td>
+        <td>{{ itemn.stalosc }}</td>
+=======
+        <td><p>{{ item.tytul }}</p></td>
+        <td><p>{{ item.wartosc }}</p></td>
+        <td><p>{{ item.data }}</p></td>
+        <td><p>{{ item.stalosc }}</p></td>
+>>>>>>> 4716dc911e095c61dba9f80f6c8d14e4877f60c2
+    </tr>
+    {% endfor %}
+	</table>
+
+</body>
+</html>

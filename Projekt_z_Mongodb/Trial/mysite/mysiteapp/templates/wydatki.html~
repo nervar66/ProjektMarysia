@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href={% static 'komentarze/styles.css' %} />
+	<title>Wydatki</title>
+</head>
+<body>
+<table>
+<tr>
+	<td><a href="/wydatki/">Wydatki</a></td>	
+	<td><a href="/dochody/">Dochody</a></td>
+	<td><a href="/zestawienie/">Zestawienie</a></td>
+	<td><a href="/edytowanie/">Edycja</a></td>
+</tr>
+</table>
+
+<h2>Zestawienie</h2>
+	
+	<form action="/wydatki" method="POST">
+		{% csrf_token %}
+		<table>
+		<tr>
+		{{ form2 }}
+		<tr>
+		</table>
+		<input type="submit" value="Zapisz" />
+	</form>
+
+<table>
+<tr>
+	<td><a href="/wydatki/">Wydatki</a></td>	
+	<td><a href="/dochody/">Dochody</a></td>
+	<td><a href="/zestawienie/">Zestawienie</a></td>
+	<td><a href="/edytowanie/">Edycja</a></td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<link rel="stylesheet" href="style.css" />
+	<title>Formatka</title>
+</head>
+<body>
+	
+	<form method="post">
+		{% csrf_token %}
+		{{ form }}
+		<input type="submit" value="Wyslij" />
+	</form>
+</body>
+</html>

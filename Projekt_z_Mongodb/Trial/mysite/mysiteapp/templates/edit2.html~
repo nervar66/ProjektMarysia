@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href={% static 'komentarze/styles.css' %} />
+	<title>Wydatki</title>
+</head>
+<body>
+<table>
+<tr>
+	<td><a href="/wydatki/">Wydatki</a></td>	
+	<td><a href="/dochody/">Dochody</a></td>
+	<td><a href="/zestawienie/">Zestawienie</a></td>
+	<td><a href="/edytowanie/">Edycja</a></td>
+</tr>
+</table>
+
+	<p>Edycja wydatków:</p>
+	<br>
+	<form action="/edyt2" method="POST">
+		{% csrf_token %}
+		<table>
+	    	<tr>	
+			<th><p>id</p></th>
+			<th><p>tytul</p></th>
+			<th><p>wartosc</p></th>
+			<th><p>data</p></th>
+			<th><p>stalosc</p></th>
+			<th><p></p></th>
+	    	</tr>
+		<tr>
+		<td><input name="id1" 	    	type=hidden	value={{ query.id }}  readonly></td>
+		<td><input name="tytul1" 	type="text" 	value={{ query.tytul }}></td>
+		<td><input name="wartosc1" 	type="text" 	value={{ query.wartosc }}></td>
+		<td><input name="data1" 	type="text" 	value={{ query.data }}></td>
+		<td><input name="stalosc1" 	type="text" 	value={{ query.stalosc }}></td>
+		<tr>
+		</table>
+		<input type="submit" value="Zapisz" />
+	</form>
+	<form action="/del2" method="POST">
+	{% csrf_token %}
+	<input type="hidden" name="obiekt1" value={{ query.id }}  readonly>
+	<input type="submit" value="Usun" />
+	</form>
+</body>
+</html>

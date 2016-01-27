@@ -1,0 +1,17 @@
+{% extends "loggedin.html" %}
+{% block tytul %}Wydatki{% endblock %}
+
+{% block body %}
+
+<h2>Wydatki</h2>
+	
+	<form action="/wydatki" method="POST">
+		{% csrf_token %}
+		<table>
+		<tr>
+		{{ form2 }}
+		<tr>
+		</table>
+		<input type="submit" value="Zapisz" />
+	</form>
+{% endblock %}
