@@ -1,4 +1,5 @@
 from django.db import models
+#from mongoengine import *
 
 # Create your models here.
 
@@ -13,3 +14,18 @@ class Wydatki(models.Model):
 	wartosc   = models.IntegerField()
 	data      =	models.DateField()
 	stalosc   = models.IntegerField()
+
+
+
+
+#class Dochody(Document):
+#	tytul     = StringField(max_length=30)
+#	wartosc   = IntField()
+#	data      = DateTimeField()
+#	stalosc   = IntField()
+#	kategoria = StringField(max_length=30)
+#class Wydatki(Document):
+#	tytul     = StringField(max_length=30)
+#	wartosc   = IntField()
+#	data      = DateTimeField()
+#	stalosc   = IntField()

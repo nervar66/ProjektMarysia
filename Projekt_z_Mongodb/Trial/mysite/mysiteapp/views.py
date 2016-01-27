@@ -104,7 +104,7 @@ def Zestawka(request):
 		query= Dochody.objects.all()
 		return render(request, 'zestawienie.html',{'query2': query2, 'query': query})
 	else:
-		return render_to_response('baza.html')
+		return render_to_response('zestawienie.html')
 #do edycji
 
 def EdytkaD(request):
@@ -134,7 +134,7 @@ def Edytor(request):
 		query= Dochody.objects.all()
 		return render(request, 'edytowanie.html',{'query2': query2, 'query': query})
 	else:
-		return render_to_response('baza.html')
+		return render_to_response('edytowanie.html')
 
 def Edit_doh(request):
 	if request.user.is_authenticated():
